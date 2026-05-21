@@ -1,0 +1,79 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Build and distribution directories
+dist/
+.dist/
+build/
+
+# Local env files
+.env*
+!.env.example
+
+# Editor directories and system files
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+.cache/
+tmp/
+*.tmp
+.parcel-cache/
+.sass-cache/
+
+# Vercel / deployment
+.vercel/
+.vercel_build_output/
+.netlify/
+.firebase/
+
+# Assets/uploads (if any)
+public/uploads/
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Compiled source
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.dylib
+
+# Package manager files
+.pnp/
+.pnp.js
+node_modules/
+
+# Python cache (if present)
+__pycache__/
+*.py[cod]
+
+# Misc
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+.qodo/
+
+# Test scripts
+test_scraper.js
