@@ -70,9 +70,14 @@ export default function LandingPage() {
             desc: "Sort your plans across elegant, color-coded rows mapped to departments like Engineering, Product, Marketing, Design, and Legal with clean glassmorphic dividers." 
         },
         { 
-            icon: Network, 
-            title: "SVG Dependency Pathing", 
-            desc: "Visualise the critical path. Interlocking task blocks are linked via active, glowing bezier curve vectors. Hover a block to trace its exact blocking chains." 
+            icon: Sparkles, 
+            title: "Live Multiplayer Presence", 
+            desc: "Co-author timelines with your team. Features throttled 120ms Figma-style cursors, active teammate indicators, circular initials-based assignee stacks, and active personal task spotlighting." 
+        },
+        { 
+            icon: TrendingUp, 
+            title: "AI Monte Carlo Forecaster", 
+            desc: "Run 300 randomized timeline simulations modeling developer leaves, delay variances (-5% to +35%), and topological bottleneck cascades to generate high-fidelity P50/P90 deadline outcomes." 
         },
         { 
             icon: Sparkles, 
@@ -81,8 +86,8 @@ export default function LandingPage() {
         },
         { 
             icon: History, 
-            title: "Temporal Shift Version Control", 
-            desc: "Protect your timeline against erroneous AI updates. Undo or Redo any recursive shift instantly, returning the schedule to its previous state with zero data loss." 
+            title: "Temporal Rollbacks", 
+            desc: "Protect your timeline against mistake-driven updates. Undo or Redo any recursive shift instantly, returning your schedule coordinates to previous states via toolbar controls or keyboard shortcuts." 
         },
         { 
             icon: Shield, 
@@ -110,6 +115,15 @@ export default function LandingPage() {
             query: "Database migration is delayed by 5 days. Adjust the timeline.",
             outcome: "The delayed block smooth-slides 5 days right. Chronos recursively propagates the delay across blocked tasks, flashing affected nodes with soft red halos."
         },
+        {
+            id: "collaborative-sync",
+            title: "Multiplayer Invites & Alerts",
+            icon: Bell,
+            desc: "Assigning teammates and aligning plans is now real-time. Invite members, assign multiple collaborators to tasks, and stay synchronized via global Neobrutalist Alert Board notifications.",
+            mechanic: "Multi-User Event Syncing",
+            query: "Invite jane@gmail.com as Editor and assign her to our Design milestone.",
+            outcome: "Jane receives an instant Workspace Share invite on her header Bell, and her assignee bubble is instantly stacked onto the Design Gantt block."
+        }
     ];
 
     return (

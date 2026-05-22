@@ -26,6 +26,8 @@ Here is how Chronos solves this via a **Topological AI Sandbox**:
 | Feature Dimension | Traditional Project Managers | The Chronos Engine |
 | :--- | :--- | :--- |
 | **Downstream Delays** | ❌ **Manual Dragging**. Moving a delayed task forces you to manually edit every blocked child block. | 🟢 **Recursive Date Reflow**. Automatically propagates date shifts forward across blocked dependency chains in milliseconds. |
+| **Teammate Tracking** | ❌ **Stale static assignees**. Single text inputs with zero live activity or pointer tracking. | 🟢 **Figma-Style Presence**. Throttled (120ms) live cursor pointers, active teammate layers, and multi-assignee Gantt stacks. |
+| **Risk & Deadlines** | ❌ **Administrative guesswork**. Manual analysis to try and estimate overall timeline safety metrics. | 🟢 **Monte Carlo AI Forecaster**. Cascades 300 randomized schedule variance simulations for P50/P90 probability estimates. |
 | **Roadmap Ingestion** | ❌ **Hours of Setup**. Manually drafting 30 tasks, start/end dates, and tracks. | 🟢 **Conversational Blueprinting**. Describe plans in natural language; Chronos compiles and draws the complete timeline in seconds. |
 | **Workflow Automations** | ❌ **Rigid Systems**. Complex configuration menus for simple webhooks. | 🟢 **Event Action Studio**. Describe rules in conversation to alert Slack channels or email teams when milestones are met or delayed. |
 | **Self-Healing Math** | ❌ **Formula Errors**. LLM hallucinates wrong offsets or dates when prompting schedules. | 🟢 **Client-Side Sandbox**. AI rescheduling logic compiles and runs deterministically in a browser sandbox, catching typos automatically. |
@@ -71,11 +73,13 @@ graph TD
 
 -   **Conversational Blueprinting**: Describe high-level product release plans in a single prompt and watch Chronos draw styled multi-track roadmaps instantly.
 -   **Recursive Date Reflow**: The temporal shift engine. When a task slips, Chronos automatically propagates the dates forward across dependent blocked chains.
+-   **Figma-Style Presence Cursors**: Real-time mouse cursor coordinates, floating teammate names, and distinct color pointers synchronized relative to the Gantt chart mesh.
+-   **AI Monte Carlo Risk Forecaster**: Run 300 timeline projections modeling randomized team leaves, delay variances (-5% to +35%), and dependency topological cascade delays.
+-   **Multi-Assignee Stacks & Spotlights**: Toggle assignee checkboxes for teammates, render visual overlapping circular initials avatars, and highlight the logged-in user's active tasks with neon-purple pulsing halos.
+-   **Centralized Alert Board**: A persistent, global, secure header notification bell tracking shared chronicle invites and task assignments with real-time mark-all-as-read security.
 -   **Amber Preview Mode**: Review proposed timeline shifts before saving. Chronos slides blocked tasks into preview slots and highlights warnings in amber.
 -   **Event Action Studio**: Bind automation rules directly to milestones. Trigger mock Slack notifications or send alerts when tasks complete or face delays.
 -   **Spatial Gantt Canvas**: View tasks across color-coded lanes representing departments like Engineering, Product, Marketing, Design, and Legal.
--   **SVG Bezier Pathing**: Active curve vectors linking blocked tasks. Hover over a task block to trace its exact critical blocking chains.
--   **Collaborative Presence**: Track cursor movements and active teammates in real-time while editing coordinates.
 
 ---
 
