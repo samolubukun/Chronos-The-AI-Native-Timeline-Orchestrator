@@ -16,6 +16,7 @@ import { CreateChronicleModal } from './_components/CreateChronicleModal'
 import { DeleteChronicleModal } from './_components/DeleteChronicleModal'
 import moment from 'moment'
 import { motion, AnimatePresence } from 'framer-motion'
+import { cn } from "@/lib/utils"
 
 export default function Dashboard() {
     const router = useRouter();
@@ -79,13 +80,15 @@ export default function Dashboard() {
                         <p className="text-slate-600 font-bold max-w-xl">Orchestrate timelines, chain dependency pathways, and configure active event automations via conversation.</p>
                     </div>
 
-                    <Button 
-                        onClick={() => setIsCreateModalOpen(true)}
-                        className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black px-6 py-6 h-auto text-[13px] font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
-                    >
-                        <Plus className="w-5 h-5 mr-2" />
-                        New Chronicle
-                    </Button>
+                    <div className="flex items-center gap-3 shrink-0 relative">
+                        <Button 
+                            onClick={() => setIsCreateModalOpen(true)}
+                            className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black px-6 py-6 h-auto text-[13px] font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
+                        >
+                            <Plus className="w-5 h-5 mr-2" />
+                            New Chronicle
+                        </Button>
+                    </div>
                 </div>
 
                 {/* Stats Overview */}
@@ -174,8 +177,16 @@ export default function Dashboard() {
                                         className="group relative flex flex-col min-h-[300px] rounded-none border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(156,0,255,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden p-8"
                                     >
                                         <div className="flex justify-between items-start mb-6">
-                                            <div className="h-14 w-14 border-4 border-black bg-violet-500 flex items-center justify-center group-hover:scale-105 transition-transform shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                                <Clock className="h-6 w-6 text-white" />
+                                            <div className="flex items-center gap-3">
+                                                <div className="h-14 w-14 border-4 border-black bg-violet-500 flex items-center justify-center group-hover:scale-105 transition-transform shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                                    <Clock className="h-6 w-6 text-white" />
+                                                </div>
+                                                {chronicle.isShared && (
+                                                    <div className="px-2 py-0.5 bg-emerald-100 text-emerald-850 border-2 border-black font-black uppercase text-[7px] tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1 shrink-0">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                                        👥 Collaboration
+                                                    </div>
+                                                )}
                                             </div>
                                             <Button 
                                                 variant="ghost" 
@@ -186,13 +197,18 @@ export default function Dashboard() {
                                                 <Trash2 className="h-4 w-4" />
                                             </Button>
                                         </div>
-
+ 
                                         <div className="flex-1 flex flex-col justify-between">
                                             <div className="space-y-2">
                                                 <h3 className="font-black text-2xl text-slate-900 line-clamp-1 group-hover:text-violet-500 transition-colors uppercase tracking-tight">{chronicle.name}</h3>
                                                 <div className="flex items-center text-[9px] font-black uppercase tracking-widest text-slate-500 gap-1.5">
                                                     <Clock className="h-3.5 w-3.5 text-violet-500" />
-                                                    <span>Planned {moment(chronicle._creationTime).fromNow()}</span>
+                                                    <span>
+                                                        {chronicle.isShared 
+                                                            ? `Shared by ${chronicle.ownerName}` 
+                                                            : `Planned ${moment(chronicle._creationTime).fromNow()}`
+                                                        }
+                                                    </span>
                                                 </div>
                                             </div>
 
