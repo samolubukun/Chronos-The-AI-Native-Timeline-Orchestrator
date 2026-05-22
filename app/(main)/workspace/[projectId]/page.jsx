@@ -527,11 +527,19 @@ export default function Workspace({ params }) {
 
     // Task editing states
     const handleOpenEditor = (task) => {
+        if (currentUserRole === "viewer") {
+            toast.error("You are viewing this workspace as read-only. Task Blueprint editing is locked.");
+            return;
+        }
         setEditingTask(task);
         setIsEditorOpen(true);
     };
 
     const handleCreateTaskOnTrack = async (department) => {
+        if (currentUserRole === "viewer") {
+            toast.error("You are viewing this workspace as read-only. Adding tasks is locked.");
+            return;
+        }
         snapshotBeforeChange();
         const today = new Date().setHours(9, 0, 0, 0);
         const tomorrow = today + 24 * 60 * 60 * 1000;
