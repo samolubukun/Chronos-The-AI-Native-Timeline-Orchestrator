@@ -58,7 +58,7 @@ function AppHeader() {
     };
 
     return (
-        <div className='p-2.5 md:py-2.5 md:px-6 shadow-sm flex justify-between items-center px-3 bg-white border-b-4 border-black text-slate-950 relative z-50'>
+        <div className='p-2.5 md:py-2.5 md:px-6 shadow-sm flex justify-between items-center px-3 bg-white border-b-4 border-black text-slate-950 relative z-[9999]'>
             
             {/* Hidden Modal rendered here so it triggers over everything */}
             <CreateChronicleModal 
@@ -142,7 +142,7 @@ function AppHeader() {
                         </button>
                         
                         {isNotificationsOpen && (
-                            <div className="absolute right-0 top-11 z-[9999] bg-white border-4 border-black w-80 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col max-h-[380px] overflow-hidden text-slate-950">
+                            <div className="absolute right-0 top-11 z-[9999] bg-white border-4 border-black w-80 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col text-slate-950">
                                 <div className="flex justify-between items-center border-b-2 border-black pb-2 mb-3">
                                     <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-950">Alert Board</h4>
                                     {notifications.some(n => !n.read) && (
@@ -153,13 +153,13 @@ function AppHeader() {
                                                     toast.success("All marked as read");
                                                 } catch (e) {}
                                             }}
-                                            className="text-[8px] font-black uppercase tracking-wider text-violet-755 hover:underline"
+                                            className="text-[8px] font-black uppercase tracking-wider text-violet-600 hover:underline"
                                         >
                                             Clear All
                                         </button>
                                     )}
                                 </div>
-                                <div className="flex-1 overflow-y-auto space-y-2 pr-1 no-scrollbar pt-1">
+                                <div className="overflow-y-auto space-y-2.5 pr-1.5 pl-0.5 pb-1 pt-1 max-h-[250px] no-scrollbar">
                                     {notifications.map((n) => (
                                         <div 
                                             key={n._id} 

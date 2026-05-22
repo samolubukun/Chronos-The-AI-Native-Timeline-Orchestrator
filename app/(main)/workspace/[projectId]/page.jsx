@@ -757,7 +757,7 @@ export default function Workspace({ params }) {
         <div className="h-full w-full bg-slate-50 flex flex-col overflow-hidden text-slate-950 font-sans">
             
             {/* Header / Toolbar switcher */}
-            <header className="h-16 border-b-4 border-black flex items-center justify-between px-4 bg-white z-50">
+            <header className="h-16 border-b-4 border-black flex items-center justify-between px-4 bg-white z-30">
                 <div className="flex items-center gap-4">
                     <Button 
                         variant="ghost" 
