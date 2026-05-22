@@ -20,7 +20,8 @@ import {
     Network,
     Terminal,
     MessageSquare,
-    TrendingUp
+    TrendingUp,
+    Users
 } from 'lucide-react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -70,9 +71,9 @@ export default function LandingPage() {
             desc: "Sort your plans across elegant, color-coded rows mapped to departments like Engineering, Product, Marketing, Design, and Legal with clean glassmorphic dividers." 
         },
         { 
-            icon: Sparkles, 
-            title: "Live Multiplayer Presence", 
-            desc: "Co-author timelines with your team. Features throttled 120ms Figma-style cursors, active teammate indicators, circular initials-based assignee stacks, and active personal task spotlighting." 
+            icon: Users, 
+            title: "Multiplayer Sharing & Live Presence", 
+            desc: "Co-author roadmaps in real-time. Invite teammates with zero-friction roles, receive instant Workspace Share notifications, track throttled 120ms Figma-style presence cursors, and stack assignees on Gantt tracks." 
         },
         { 
             icon: TrendingUp, 
@@ -117,12 +118,12 @@ export default function LandingPage() {
         },
         {
             id: "collaborative-sync",
-            title: "Multiplayer Invites & Alerts",
-            icon: Bell,
-            desc: "Assigning teammates and aligning plans is now real-time. Invite members, assign multiple collaborators to tasks, and stay synchronized via global Neobrutalist Alert Board notifications.",
-            mechanic: "Multi-User Event Syncing",
-            query: "Invite jane@gmail.com as Editor and assign her to our Design milestone.",
-            outcome: "Jane receives an instant Workspace Share invite on her header Bell, and her assignee bubble is instantly stacked onto the Design Gantt block."
+            title: "Multiplayer Assigning",
+            icon: Users,
+            desc: "Coordinate and assign your team in real time. Invite new collaborators directly to your workspace chronicle, check off multiple assignees in the details blueprint editor, and stack teammates onto active milestones.",
+            mechanic: "Teammate Assignment & Sync",
+            query: "Assign jane@gmail.com and john@gmail.com to our code freeze milestone.",
+            outcome: "Chronos checks Convex user accounts, resolves jane@gmail.com and john@gmail.com, updates task membership records, and instantly stacks overlapping initials-based avatars inside the Gantt grid block."
         }
     ];
 
