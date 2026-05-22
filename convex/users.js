@@ -6,7 +6,7 @@ export const getUserByEmail = query({
     handler: async (ctx, args) => {
         return await ctx.db
             .query("users")
-            .withIndex("by_email", (q) => q.eq("email", args.email))
+            .withIndex("by_email", (q) => q.eq("email", args.email.trim().toLowerCase()))
             .unique();
     },
 });
@@ -36,14 +36,14 @@ export const createOrUpdateUser = mutation({
         if (existingUser) {
             await ctx.db.patch(existingUser._id, {
                 name: args.name,
-                email: args.email,
+                email: args.email.trim().toLowerCase(),
             });
             return existingUser._id;
         }
 
         return await ctx.db.insert("users", {
             name: args.name,
-            email: args.email,
+            email: args.email.trim().toLowerCase(),
             stackId: args.stackId,
             credits: 50, // Initial credits for Catalyst
         });
@@ -93,4 +93,16 @@ export const deductCredit = mutation({
 
         return { success: true, newCredits };
     }
+});
+
+export const currentUser = query({
+  args: {},
+  handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) return null;
+    return await ctx.db
+      .query("users")
+      .withIndex("by_stackId", (q) => q.eq("stackId", identity.subject))
+      .unique();
+  },
 });
