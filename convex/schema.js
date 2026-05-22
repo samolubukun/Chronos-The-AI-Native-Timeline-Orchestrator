@@ -16,6 +16,13 @@ export default defineSchema({
     departments: v.optional(v.array(v.string())), // Dynamic department tracks
   }).index("by_user", ["userId"]),
 
+  chronicleMembers: defineTable({
+    chronicleId: v.id("chronicles"),
+    userId: v.id("users"),
+    email: v.string(), // Normalized email for quick lookups
+    role: v.string(), // "editor" | "viewer" | "admin"
+  }).index("by_chronicle", ["chronicleId"]).index("by_user", ["userId"]).index("by_email", ["email"]),
+
   tasks: defineTable({
     chronicleId: v.id("chronicles"),
     name: v.string(),
@@ -26,9 +33,21 @@ export default defineSchema({
     department: v.string(), // Department/track, e.g., "Engineering", "Design", "Marketing", "Product", "Legal"
     dependencies: v.array(v.id("tasks")), // Array of task IDs blocking this task
     assignee: v.optional(v.string()),
+    assigneeIds: v.optional(v.array(v.string())), // Array of user IDs assigned
+    assigneeEmails: v.optional(v.array(v.string())), // Array of assignee emails for AI coordination
     notes: v.optional(v.string()),
     isMilestone: v.optional(v.boolean()), // True if it's a milestone (0-duration flag)
   }).index("by_chronicle", ["chronicleId"]),
+
+  notifications: defineTable({
+    userId: v.id("users"),
+    type: v.string(), // "invite" | "assignment" | "alert"
+    title: v.string(),
+    message: v.string(),
+    link: v.optional(v.string()), // e.g., "/workspace/projectId"
+    read: v.boolean(),
+    creationTime: v.number(), // manual timestamp for sorting
+  }).index("by_user", ["userId"]),
 
   automations: defineTable({
     chronicleId: v.id("chronicles"),
