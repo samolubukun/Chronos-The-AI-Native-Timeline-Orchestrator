@@ -149,6 +149,7 @@ export const orchestrate = action({
                        "color": "violet" | "emerald" | "amber" | "blue" | "rose" | "pink",
                        "department": ${depts.map(d => `"${d}"`).join(" | ")},
                        "dependencies": [0], // Array of index indices in this returned array that this task depends on (e.g. task 1 depends on task 0). These will be resolved to real database IDs automatically!
+                       "assigneeEmails": ["jane@gmail.com"], // Array of strings (collaborator emails). ALWAYS set this if the user assigns tasks to specific members in their query (e.g. "jane@gmail.com handles design", "alex@gmail.com does engineering").
                        "notes": "Description of the task"
                      }
                    - Example returned code:
@@ -156,8 +157,8 @@ export const orchestrate = action({
                      const today = new Date().setHours(9,0,0,0);
                      const day = 24 * 60 * 60 * 1000;
                      return [
-                       { "name": "Code Freeze", "status": "todo", "startDate": today, "endDate": today + 5*day, "color": "violet", "department": "Engineering", "dependencies": [], "notes": "Hold feature additions" },
-                       { "name": "App Store Review", "status": "todo", "startDate": today + 5*day, "endDate": today + 10*day, "color": "blue", "department": "Product", "dependencies": [0], "notes": "Locked until Code Freeze completes" }
+                       { "name": "Code Freeze", "status": "todo", "startDate": today, "endDate": today + 5*day, "color": "violet", "department": "Engineering", "dependencies": [], "assigneeEmails": ["jane@gmail.com"], "notes": "Hold feature additions" },
+                       { "name": "App Store Review", "status": "todo", "startDate": today + 5*day, "endDate": today + 10*day, "color": "blue", "department": "Product", "dependencies": [0], "assigneeEmails": ["alex@gmail.com"], "notes": "Locked until Code Freeze completes" }
                      ];
                      \`\`\`
                      
