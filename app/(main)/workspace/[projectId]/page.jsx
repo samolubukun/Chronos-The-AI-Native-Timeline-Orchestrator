@@ -397,6 +397,13 @@ export default function Workspace({ params }) {
     const chronicleMembers = useQuery(api.chronicles.getMembers, { chronicleId }) || [];
     const { userData: activeUser } = useContext(UserContext);
     const activePresences = useQuery(api.presence.listByChronicle, { chronicleId }) || [];
+
+    const currentUserRole = useMemo(() => {
+        if (!activeUser || !chronicle) return "viewer";
+        if (chronicle.userId === activeUser._id) return "owner";
+        const member = chronicleMembers.find(m => m.userId === activeUser._id);
+        return member ? member.role : "viewer";
+    }, [activeUser, chronicle, chronicleMembers]);
     
     const createTask = useMutation(api.tasks.create);
     const updateTask = useMutation(api.tasks.update);
@@ -1117,6 +1124,7 @@ export default function Workspace({ params }) {
                             setPreviewCode(null);
                         }}
                         onApplyPreview={handleApplyPreview}
+                        currentUserRole={currentUserRole}
                     />
                 </aside>
             </div>

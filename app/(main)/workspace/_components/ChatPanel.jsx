@@ -17,7 +17,8 @@ export default function ChatPanel({
     onPreview, 
     onClearPreview, 
     onApplyPreview,
-    previewActive 
+    previewActive,
+    currentUserRole = "viewer"
 }) {
     const { userData } = useContext(UserContext);
     const [input, setInput] = useState('');
@@ -158,15 +159,17 @@ export default function ChatPanel({
                     </div>
                 </div>
                 
-                <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    onClick={handleClearChat}
-                    title="Clear Chat History"
-                    className="h-8 w-8 text-slate-500 hover:text-red-600 hover:bg-slate-100 rounded-lg"
-                >
-                    <Trash2 className="w-4 h-4" />
-                </Button>
+                {currentUserRole !== "viewer" && (
+                    <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        onClick={handleClearChat}
+                        title="Clear Chat History"
+                        className="h-8 w-8 text-slate-500 hover:text-red-600 hover:bg-slate-100 rounded-lg"
+                    >
+                        <Trash2 className="w-4 h-4" />
+                    </Button>
+                )}
             </header>
 
             {/* Messages Area */}
@@ -249,10 +252,10 @@ export default function ChatPanel({
                                                 </Button>
                                                 <Button 
                                                     onClick={onApplyPreview}
-                                                    disabled={!previewActive}
-                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                                                    disabled={!previewActive || currentUserRole === "viewer"}
+                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed"
                                                 >
-                                                    Apply & Save
+                                                    {currentUserRole === "viewer" ? "Apply (Locked)" : "Apply & Save"}
                                                 </Button>
                                             </div>
                                         </div>
@@ -276,10 +279,10 @@ export default function ChatPanel({
                                                 </Button>
                                                 <Button 
                                                     onClick={onApplyPreview}
-                                                    disabled={!previewActive}
-                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                                                    disabled={!previewActive || currentUserRole === "viewer"}
+                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed"
                                                 >
-                                                    Apply Changes
+                                                    {currentUserRole === "viewer" ? "Apply (Locked)" : "Apply Changes"}
                                                 </Button>
                                             </div>
                                         </div>
@@ -308,37 +311,46 @@ export default function ChatPanel({
             </ScrollArea>
 
             {/* Input Area */}
-            <div className="p-4 bg-white border-t-4 border-black shrink-0">
-                <div className="relative flex items-center gap-2 max-w-2xl mx-auto">
-                    <textarea
-                        ref={textareaRef}
-                        rows={1}
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !e.shiftKey) {
-                                e.preventDefault();
-                                handleSend();
-                            }
-                        }}
-                        placeholder="Explain timeline constraints, shifts, or triggers..."
-                        className="flex-1 bg-slate-50 border-2 border-black rounded-none px-4 py-[11px] text-xs focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all text-slate-950 placeholder:text-slate-400 resize-none max-h-[160px] overflow-y-auto no-scrollbar font-bold uppercase tracking-tight"
-                    />
-                    <Button 
-                        onClick={handleSend}
-                        disabled={!input.trim() || isTyping}
-                        className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black w-10 h-10 p-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0"
-                    >
-                        {isTyping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
-                    </Button>
+            {currentUserRole === "viewer" ? (
+                <div className="p-4 bg-white border-t-4 border-black shrink-0">
+                    <div className="bg-amber-50 border-4 border-black p-4 text-[10px] font-black text-amber-700 uppercase tracking-widest text-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center gap-3">
+                        <span className="text-sm">🔒</span>
+                        <span>Read-only workspace. Ask owner to elevate your role to Editor to chat with Chronos.</span>
+                    </div>
                 </div>
-                <div className="flex justify-between items-center text-[8px] text-slate-500 mt-2 font-black uppercase tracking-widest px-1">
-                    <span>AI dates recalculate recursively using topological algorithms.</span>
-                    {userData && (
-                        <span className="font-black text-violet-500 shrink-0">{userData.credits ?? 0} Credits Left</span>
-                    )}
+            ) : (
+                <div className="p-4 bg-white border-t-4 border-black shrink-0">
+                    <div className="relative flex items-center gap-2 max-w-2xl mx-auto">
+                        <textarea
+                            ref={textareaRef}
+                            rows={1}
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && !e.shiftKey) {
+                                    e.preventDefault();
+                                    handleSend();
+                                }
+                            }}
+                            placeholder="Explain timeline constraints, shifts, or triggers..."
+                            className="flex-1 bg-slate-50 border-2 border-black rounded-none px-4 py-[11px] text-xs focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all text-slate-950 placeholder:text-slate-400 resize-none max-h-[160px] overflow-y-auto no-scrollbar font-bold uppercase tracking-tight"
+                        />
+                        <Button 
+                            onClick={handleSend}
+                            disabled={!input.trim() || isTyping}
+                            className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black w-10 h-10 p-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0"
+                        >
+                            {isTyping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
+                        </Button>
+                    </div>
+                    <div className="flex justify-between items-center text-[8px] text-slate-500 mt-2 font-black uppercase tracking-widest px-1">
+                        <span>AI dates recalculate recursively using topological algorithms.</span>
+                        {userData && (
+                            <span className="font-black text-violet-500 shrink-0">{userData.credits ?? 0} Credits Left</span>
+                        )}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }
