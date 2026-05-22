@@ -2,7 +2,7 @@
 
 import { UserButton } from '@stackframe/stack'
 import Link from 'next/link'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useQuery, useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
@@ -30,6 +30,26 @@ function AppHeader() {
     
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+    
+    const notificationContainerRef = useRef(null);
+    const bellButtonRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (isNotificationsOpen &&
+                notificationContainerRef.current && 
+                !notificationContainerRef.current.contains(event.target) &&
+                bellButtonRef.current &&
+                !bellButtonRef.current.contains(event.target)
+            ) {
+                setIsNotificationsOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isNotificationsOpen]);
     
     // Fetch chronicles to populate the switcher dropdown
     const chronicles = useQuery(api.chronicles.list, userData?._id ? { userId: userData._id } : "skip") || [];
@@ -130,6 +150,7 @@ function AppHeader() {
                 {userData && (
                     <div className="relative shrink-0">
                         <button 
+                            ref={bellButtonRef}
                             onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
                             className="bg-white hover:bg-slate-100 text-slate-950 rounded-none border-2 border-black flex items-center justify-center w-9 h-9 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all relative cursor-pointer"
                         >
@@ -142,7 +163,10 @@ function AppHeader() {
                         </button>
                         
                         {isNotificationsOpen && (
-                            <div className="absolute right-0 top-11 z-[9999] bg-white border-4 border-black w-80 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col text-slate-950">
+                            <div 
+                                ref={notificationContainerRef}
+                                className="absolute right-0 top-11 z-[9999] bg-white border-4 border-black w-80 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col text-slate-950"
+                            >
                                 <div className="flex justify-between items-center border-b-2 border-black pb-2 mb-3">
                                     <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-950">Alert Board</h4>
                                     {notifications.some(n => !n.read) && (
