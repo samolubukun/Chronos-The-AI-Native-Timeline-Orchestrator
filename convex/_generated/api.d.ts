@@ -12,6 +12,7 @@ import type * as agents from "../agents.js";
 import type * as automations from "../automations.js";
 import type * as chronicles from "../chronicles.js";
 import type * as messages from "../messages.js";
+import type * as notifications from "../notifications.js";
 import type * as presence from "../presence.js";
 import type * as tasks from "../tasks.js";
 import type * as users from "../users.js";
@@ -27,6 +28,7 @@ declare const fullApi: ApiFromModules<{
   automations: typeof automations;
   chronicles: typeof chronicles;
   messages: typeof messages;
+  notifications: typeof notifications;
   presence: typeof presence;
   tasks: typeof tasks;
   users: typeof users;
