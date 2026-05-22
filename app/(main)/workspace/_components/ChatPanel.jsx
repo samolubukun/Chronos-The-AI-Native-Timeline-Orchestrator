@@ -173,8 +173,8 @@ export default function ChatPanel({
             </header>
 
             {/* Messages Area */}
-            <ScrollArea ref={scrollRef} className="flex-1 p-4 bg-slate-50">
-                <div className="space-y-6 max-w-2xl mx-auto pb-6">
+            <ScrollArea ref={scrollRef} className={cn("flex-1 p-4 bg-slate-50", currentUserRole === "viewer" && "pointer-events-none select-none overflow-hidden")}>
+                <div className={cn("space-y-6 max-w-2xl mx-auto pb-6 transition-all duration-300", currentUserRole === "viewer" && "blur-[6px] opacity-60")}>
                     {messages.length === 0 && (
                         <div className="py-16 flex flex-col items-center text-center space-y-4">
                             <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(156,0,255,1)]">
