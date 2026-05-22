@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" width="100" alt="Chronos Logo" />
+  <img src="public/logo-dark.png" width="100" alt="Chronos Logo" />
   <h1>⏱️ Chronos — The AI-Native Timeline Orchestrator</h1>
   
   <p align="center">
