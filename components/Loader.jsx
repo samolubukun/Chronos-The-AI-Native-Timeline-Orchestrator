@@ -14,7 +14,7 @@ const Loader = () => {
 
                 {/* Core Logo */}
                 <div className="absolute flex flex-col items-center justify-center">
-                    <div className="relative h-20 w-20 flex items-center justify-center bg-white rounded-3xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(139,92,246,1)] overflow-hidden">
+                    <div className="relative h-20 w-20 flex items-center justify-center bg-white rounded-3xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(156,0,255,1)] overflow-hidden">
                         <img 
                             src="/logo.png" 
                             alt="Chronos" 

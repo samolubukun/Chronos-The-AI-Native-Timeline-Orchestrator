@@ -126,14 +126,14 @@ export default function LandingPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 border-4 border-black bg-violet-600 text-white mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 border-4 border-black bg-violet-500 text-white mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                                  <Sparkles className="w-4 h-4 text-emerald-400 font-bold" />
                                  <span className="text-xs font-black uppercase tracking-[0.2em]">The AI-Native Timeline Orchestrator</span>
                             </div>
 
                             <h1 className="text-5xl sm:text-7xl md:text-9xl font-black mb-8 leading-[0.9] tracking-tighter text-slate-950 uppercase">
                                 Talk to your <br />
-                                <span className="bg-white text-black border-4 border-black px-6 py-2 inline-block -rotate-1 shadow-[8px_8px_0px_0px_rgba(139,92,246,1)] mt-4">Timeline.</span>
+                                <span className="bg-white text-black border-4 border-black px-6 py-2 inline-block -rotate-1 shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] mt-4">Timeline.</span>
                             </h1>
 
                             <p className="text-xl md:text-3xl text-slate-700 max-w-3xl mx-auto mb-12 font-black leading-tight uppercase tracking-tight px-4">
@@ -143,7 +143,7 @@ export default function LandingPage() {
                             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-4">
                                 <Button
                                     onClick={handleGetStarted}
-                                    className="w-full sm:w-auto px-12 py-8 text-xl md:text-2xl rounded-none bg-violet-600 text-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-black uppercase tracking-widest h-auto"
+                                    className="w-full sm:w-auto px-12 py-8 text-xl md:text-2xl rounded-none bg-violet-500 text-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-black uppercase tracking-widest h-auto"
                                 >
                                     Get Started Free
                                 </Button>
@@ -177,7 +177,7 @@ export default function LandingPage() {
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                             <div className="space-y-8">
-                                <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.4em] text-violet-600">The Timeline Orchestrator</h2>
+                                <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.4em] text-violet-500">The Timeline Orchestrator</h2>
                                 <h3 className="text-4xl md:text-7xl font-black text-slate-950 leading-[0.9] uppercase tracking-tighter italic">
                                     Orchestrating Time, dependencies, and <span className="text-violet-500 underline decoration-emerald-400">Execution.</span>
                                 </h3>
@@ -198,12 +198,12 @@ export default function LandingPage() {
                                 </div>
                             </div>
                             <div className="relative">
-                                <div className="w-full aspect-square border-8 border-black bg-slate-100 shadow-[20px_20px_0px_0px_rgba(139,92,246,1)] relative flex items-center justify-center overflow-hidden group">
+                                <div className="w-full aspect-square border-8 border-black bg-slate-100 shadow-[20px_20px_0px_0px_rgba(156,0,255,1)] relative flex items-center justify-center overflow-hidden group">
                                     <div className="absolute inset-0 bg-violet-900/5 backdrop-blur-sm z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                     <Calendar className="w-48 h-48 text-violet-500/20 group-hover:scale-110 transition-transform duration-500" />
                                     
                                     <div className="absolute inset-4 border-4 border-dashed border-violet-500/20 flex flex-col items-center justify-center">
-                                        <div className="w-72 bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(139,92,246,1)] mb-4">
+                                        <div className="w-72 bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] mb-4">
                                             <div className="flex justify-between items-center mb-3">
                                                 <div className="w-20 h-2 bg-slate-200" />
                                                 <div className="w-10 h-3 bg-violet-500 rounded" />
@@ -211,7 +211,7 @@ export default function LandingPage() {
                                             <div className="w-full h-3 bg-slate-100 rounded mb-2" />
                                             <div className="w-3/4 h-2 bg-emerald-500 rounded" />
                                         </div>
-                                         <p className="font-black text-violet-600 uppercase tracking-widest text-xs animate-pulse">Running Temporal Reflow...</p>
+                                         <p className="font-black text-violet-500 uppercase tracking-widest text-xs animate-pulse">Running Temporal Reflow...</p>
                                      </div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@ export default function LandingPage() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                             {features.map((f, i) => (
-                                <div key={i} className="p-10 border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(139,92,246,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all group">
+                                <div key={i} className="p-10 border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(156,0,255,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all group">
                                     <div className="w-16 h-16 border-4 border-black bg-violet-500 flex items-center justify-center mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                                         <f.icon className="w-8 h-8 text-white font-bold" />
                                     </div>
@@ -246,7 +246,7 @@ export default function LandingPage() {
                     <div className="max-w-7xl mx-auto relative z-10">
                         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                             <div className="max-w-2xl">
-                                 <h2 className="text-sm font-black uppercase tracking-[0.4em] text-violet-600 mb-4">The Chronos Protocol</h2>
+                                 <h2 className="text-sm font-black uppercase tracking-[0.4em] text-violet-500 mb-4">The Chronos Protocol</h2>
                                 <h3 className="text-5xl md:text-8xl font-black text-slate-950 leading-[0.9] uppercase tracking-tighter">
                                     Agent <br /><span className="text-violet-500 italic underline decoration-black">Capabilities.</span>
                                 </h3>
@@ -262,7 +262,7 @@ export default function LandingPage() {
                                     <div className="absolute inset-0 bg-violet-500 translate-x-2 translate-y-2 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300" />
                                     <div className="relative bg-white border-4 border-black p-8 md:p-16 flex flex-col lg:flex-row gap-12 lg:items-center">
                                         <div className="lg:w-1/3 space-y-6">
-                                            <div className="w-20 h-20 bg-black flex items-center justify-center border-4 border-violet-500 shadow-[4px_4px_0px_0px_rgba(139,92,246,1)]">
+                                            <div className="w-20 h-20 bg-black flex items-center justify-center border-4 border-violet-500 shadow-[4px_4px_0px_0px_rgba(156,0,255,1)]">
                                                 <protocol.icon className="w-10 h-10 text-violet-500" />
                                             </div>
                                             <h4 className="text-4xl font-black text-slate-950 uppercase tracking-tighter leading-tight">{protocol.title}</h4>
@@ -297,7 +297,7 @@ export default function LandingPage() {
                 {/* Final CTA */}
                 <section className="py-20 md:py-40 px-6 bg-slate-50 border-t-8 border-black">
                     <div className="max-w-5xl mx-auto">
-                        <div className="bg-white p-12 md:p-24 text-center border-8 border-black shadow-[20px_20px_0px_0px_rgba(139,92,246,1)]">
+                        <div className="bg-white p-12 md:p-24 text-center border-8 border-black shadow-[20px_20px_0px_0px_rgba(156,0,255,1)]">
                             <h2 className="text-4xl md:text-7xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
                                 Ready to <span className="text-violet-500 italic">orchestrate</span> your time?
                             </h2>
@@ -306,7 +306,7 @@ export default function LandingPage() {
                             </p>
                             <Button
                                 onClick={handleGetStarted}
-                                className="w-full sm:w-auto px-16 py-8 text-2xl rounded-none bg-violet-600 text-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all font-black uppercase tracking-widest h-auto"
+                                className="w-full sm:w-auto px-16 py-8 text-2xl rounded-none bg-violet-500 text-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all font-black uppercase tracking-widest h-auto"
                             >
                                 Get Started Free
                             </Button>

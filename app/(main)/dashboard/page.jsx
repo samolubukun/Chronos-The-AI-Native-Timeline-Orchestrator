@@ -71,7 +71,7 @@ export default function Dashboard() {
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b-4 border-black pb-8">
                     <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-violet-600 font-black">
+                        <div className="flex items-center gap-2 text-violet-500 font-black">
                             <Clock className="w-5 h-5" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em]">Chronos Orchestrator</span>
                         </div>
@@ -81,7 +81,7 @@ export default function Dashboard() {
 
                     <Button 
                         onClick={() => setIsCreateModalOpen(true)}
-                        className="bg-violet-600 hover:bg-violet-700 text-white rounded-none border-2 border-black px-6 py-6 h-auto text-[13px] font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
+                        className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black px-6 py-6 h-auto text-[13px] font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
                     >
                         <Plus className="w-5 h-5 mr-2" />
                         New Chronicle
@@ -151,7 +151,7 @@ export default function Dashboard() {
                                 <Plus className="h-8 w-8 text-slate-500 group-hover:text-violet-500 transition-colors duration-300" />
                             </div>
                             <div className="text-center space-y-2">
-                                <h3 className="font-black text-xl text-slate-900 group-hover:text-violet-655 transition-colors uppercase tracking-tight">New Chronicle</h3>
+                                <h3 className="font-black text-xl text-slate-900 group-hover:text-violet-500 transition-colors uppercase tracking-tight">New Chronicle</h3>
                                 <p className="text-xs font-bold text-slate-500 max-w-[200px] mx-auto uppercase tracking-wide">Plan a new roadmap in natural language.</p>
                             </div>
                         </motion.button>
@@ -171,10 +171,10 @@ export default function Dashboard() {
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         key={chronicle._id}
                                         onClick={() => router.push(`/workspace/${chronicle._id}`)}
-                                        className="group relative flex flex-col min-h-[300px] rounded-none border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(139,92,246,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden p-8"
+                                        className="group relative flex flex-col min-h-[300px] rounded-none border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(156,0,255,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden p-8"
                                     >
                                         <div className="flex justify-between items-start mb-6">
-                                            <div className="h-14 w-14 border-4 border-black bg-violet-600 flex items-center justify-center group-hover:scale-105 transition-transform shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                            <div className="h-14 w-14 border-4 border-black bg-violet-500 flex items-center justify-center group-hover:scale-105 transition-transform shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                                 <Clock className="h-6 w-6 text-white" />
                                             </div>
                                             <Button 
@@ -189,7 +189,7 @@ export default function Dashboard() {
 
                                         <div className="flex-1 flex flex-col justify-between">
                                             <div className="space-y-2">
-                                                <h3 className="font-black text-2xl text-slate-900 line-clamp-1 group-hover:text-violet-600 transition-colors uppercase tracking-tight">{chronicle.name}</h3>
+                                                <h3 className="font-black text-2xl text-slate-900 line-clamp-1 group-hover:text-violet-500 transition-colors uppercase tracking-tight">{chronicle.name}</h3>
                                                 <div className="flex items-center text-[9px] font-black uppercase tracking-widest text-slate-500 gap-1.5">
                                                     <Clock className="h-3.5 w-3.5 text-violet-500" />
                                                     <span>Planned {moment(chronicle._creationTime).fromNow()}</span>
@@ -221,7 +221,7 @@ export default function Dashboard() {
                                                     <span className="text-[8px] font-black uppercase tracking-widest text-slate-400 mt-1">Rules</span>
                                                 </div>
                                                 <div className="ml-auto shrink-0">
-                                                    <div className="h-10 w-10 bg-slate-50 flex items-center justify-center border-2 border-black hover:bg-violet-600 hover:text-white group-hover:border-violet-500 group-hover:bg-violet-600 transition-all duration-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                                    <div className="h-10 w-10 bg-slate-50 flex items-center justify-center border-2 border-black hover:bg-violet-500 hover:text-white group-hover:border-violet-500 group-hover:bg-violet-500 transition-all duration-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                                         <ArrowRight className="w-4 h-4 text-slate-800 group-hover:text-white transition-colors" />
                                                     </div>
                                                 </div>

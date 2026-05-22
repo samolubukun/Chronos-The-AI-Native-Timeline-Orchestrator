@@ -129,7 +129,7 @@ export default function EventActionStudioModal({ isOpen, onClose, chronicleId })
 
                 <div className="flex-1 overflow-y-auto p-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-8 no-scrollbar">
                     <form onSubmit={handleCreateRule} className="flex flex-col h-full">
-                        <h3 className="text-xs font-black uppercase tracking-widest text-violet-600 border-b border-slate-200 pb-2">New Automation Rule</h3>
+                        <h3 className="text-xs font-black uppercase tracking-widest text-violet-500 border-b border-slate-200 pb-2">New Automation Rule</h3>
                         <div className="flex-1 space-y-4 overflow-y-auto no-scrollbar pr-1 mt-4">
                         
                         <div className="space-y-1.5">

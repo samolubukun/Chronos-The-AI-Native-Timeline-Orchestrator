@@ -41,6 +41,19 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-violet-50: #F5E6FF;
+  --color-violet-100: #EBCCFF;
+  --color-violet-200: #D699FF;
+  --color-violet-300: #C266FF;
+  --color-violet-400: #AD33FF;
+  --color-violet-500: #9C00FF;
+  --color-violet-600: #7A00CC;
+  --color-violet-700: #590099;
+  --color-violet-750: #4D0080;
+  --color-violet-800: #3D0066;
+  --color-violet-900: #210033;
+  --color-violet-950: #11001A;
 }
 
 *,
@@ -69,7 +82,7 @@ body {
   --premium-slate: #0f172a;
   --premium-slate-light: #1e293b;
 
-  --primary: #8b5cf6;
+  --primary: #9C00FF;
   --primary-foreground: #ffffff;
 
   --card: #ffffff;
@@ -77,7 +90,7 @@ body {
 
   --border: #f1f5f9;
   --input: #f1f5f9;
-  --ring: #8b5cf6;
+  --ring: #9C00FF;
 }
 
 /* Premium Animations & Effects */
@@ -113,17 +126,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.35);
+  background: rgba(156, 0, 255, 0.35);
   border-radius: 20px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.6);
+  background: rgba(156, 0, 255, 0.6);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.25);
+  background: rgba(156, 0, 255, 0.25);
 }
 
 .text-gradient {
@@ -148,7 +161,7 @@ body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #8b5cf6;
+  --primary: #9C00FF;
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -159,7 +172,7 @@ body {
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #8b5cf6;
+  --ring: #9C00FF;
 }
 
 @layer base {
@@ -300,21 +313,21 @@ body {
 }
 
 /* Chronos Department Track Colors */
-.dept-border-violet { border-left-width: 4px; border-left-color: #8b5cf6; }
+.dept-border-violet { border-left-width: 4px; border-left-color: #9C00FF; }
 .dept-border-emerald { border-left-width: 4px; border-left-color: #10b981; }
 .dept-border-amber { border-left-width: 4px; border-left-color: #f59e0b; }
 .dept-border-blue { border-left-width: 4px; border-left-color: #3b82f6; }
 .dept-border-rose { border-left-width: 4px; border-left-color: #f43f5e; }
 .dept-border-pink { border-left-width: 4px; border-left-color: #ec4899; }
 
-.dept-bg-violet { background-color: rgba(139, 92, 246, 0.1); }
+.dept-bg-violet { background-color: rgba(156, 0, 255, 0.1); }
 .dept-bg-emerald { background-color: rgba(16, 185, 129, 0.1); }
 .dept-bg-amber { background-color: rgba(245, 158, 11, 0.1); }
 .dept-bg-blue { background-color: rgba(59, 130, 246, 0.1); }
 .dept-bg-rose { background-color: rgba(244, 63, 94, 0.1); }
 .dept-bg-pink { background-color: rgba(236, 72, 153, 0.1); }
 
-.dept-text-violet { color: #8b5cf6; }
+.dept-text-violet { color: #9C00FF; }
 .dept-text-emerald { color: #10b981; }
 .dept-text-amber { color: #f59e0b; }
 .dept-text-blue { color: #3b82f6; }
@@ -339,12 +352,12 @@ body {
 /* Pulsing milestone ring */
 @keyframes milestone-glow {
   0%, 100% {
-    box-shadow: 0 0 0 0px rgba(139, 92, 246, 0.4);
-    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 0 0px rgba(156, 0, 255, 0.4);
+    border-color: rgba(156, 0, 255, 0.6);
   }
   50% {
-    box-shadow: 0 0 16px 6px rgba(139, 92, 246, 0.2);
-    border-color: rgba(139, 92, 246, 1);
+    box-shadow: 0 0 16px 6px rgba(156, 0, 255, 0.2);
+    border-color: rgba(156, 0, 255, 1);
   }
 }
 .pulse-milestone-glow {
@@ -354,7 +367,7 @@ body {
 /* Spatial calendar canvas */
 .chronos-canvas-mesh {
   background-image: 
-    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.03) 0, transparent 40%),
+    radial-gradient(at 0% 0%, rgba(156, 0, 255, 0.03) 0, transparent 40%),
     radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.03) 0, transparent 40%);
 }
 
@@ -369,12 +382,12 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #8b5cf6 !important;
+  background: #9C00FF !important;
   border-radius: 9999px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed !important;
+  background: #7A00CC !important;
 }
 
 

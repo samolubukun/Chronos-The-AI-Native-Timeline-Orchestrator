@@ -24,7 +24,7 @@ import moment from 'moment'
 
 const DEFAULT_DEPARTMENTS = ["Engineering", "Design", "Marketing", "Product", "Legal", "Operations", "Sales", "Security"];
 const TRACK_COLORS = {
-    violet: { bg: "bg-violet-50/90 hover:bg-violet-100", border: "border-violet-500", text: "text-violet-900", hex: "#8b5cf6" },
+    violet: { bg: "bg-violet-50/90 hover:bg-violet-100", border: "border-violet-500", text: "text-violet-900", hex: "#9C00FF" },
     emerald: { bg: "bg-emerald-50/90 hover:bg-emerald-100", border: "border-emerald-500", text: "text-emerald-900", hex: "#10b981" },
     amber: { bg: "bg-amber-50/90 hover:bg-amber-100", border: "border-amber-500", text: "text-amber-900", hex: "#f59e0b" },
     blue: { bg: "bg-blue-50/90 hover:bg-blue-100", border: "border-blue-500", text: "text-blue-900", hex: "#3b82f6" },
@@ -442,7 +442,7 @@ export default function Workspace({ params }) {
                 paths.push({
                     id: `${finalParent._id}_to_${task._id}`,
                     xA, yA, xB, yB,
-                    color: TRACK_COLORS[finalParent.color]?.hex || "#8b5cf6"
+                    color: TRACK_COLORS[finalParent.color]?.hex || "#9C00FF"
                 });
             });
         });
@@ -470,7 +470,7 @@ export default function Workspace({ params }) {
                         <div className="flex items-center gap-2">
                             <h1 className="text-base font-black text-slate-950 uppercase italic tracking-tight leading-tight">{chronicle.name}</h1>
                             <div className="flex items-center gap-1.5 px-2 py-0.5 bg-violet-50 border border-violet-200 rounded">
-                                <div className="w-1.5 h-1.5 rounded-full bg-violet-600 animate-pulse" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
                                 <span className="text-[8px] font-black uppercase tracking-widest text-violet-750">Sync Live</span>
                             </div>
                         </div>
@@ -521,7 +521,7 @@ export default function Workspace({ params }) {
 
                     <Button 
                         onClick={() => setIsLanesOpen(true)}
-                        className="bg-violet-600 hover:bg-violet-700 text-white rounded-none border-2 border-black font-black text-[10px] uppercase tracking-widest h-9 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black font-black text-[10px] uppercase tracking-widest h-9 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
                     >
                         <Settings2 className="w-3.5 h-3.5 mr-1.5" />
                         Manage Lanes
@@ -997,7 +997,7 @@ export default function Workspace({ params }) {
                                 </Button>
                                 <Button 
                                     onClick={() => handleSaveTask(editingTask)}
-                                    className="flex-1 bg-violet-600 hover:bg-violet-750 text-white rounded-none border-2 border-black font-black uppercase tracking-widest text-[9px] h-10 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
+                                    className="flex-1 bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black font-black uppercase tracking-widest text-[9px] h-10 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
                                 >
                                     Save Blueprint
                                 </Button>
@@ -1020,7 +1020,7 @@ export default function Workspace({ params }) {
                     {/* Locked Header */}
                     <DialogHeader className="p-6 pb-4 border-b border-slate-200">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 border-2 border-black bg-violet-600 flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-white">
+                            <div className="w-10 h-10 border-2 border-black bg-violet-500 flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-white">
                                 <Settings2 className="w-5 h-5 text-white" />
                             </div>
                             <div>

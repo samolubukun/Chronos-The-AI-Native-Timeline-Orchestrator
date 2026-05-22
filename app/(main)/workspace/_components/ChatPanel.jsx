@@ -146,13 +146,13 @@ export default function ChatPanel({
             {/* Header */}
             <header className="p-4 border-b-4 border-black flex items-center justify-between shrink-0 bg-white">
                 <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 border-2 border-black bg-violet-600 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="w-9 h-9 border-2 border-black bg-violet-500 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <Bot className="w-5 h-5 text-white" />
                     </div>
                     <div>
                         <h3 className="text-sm font-black text-slate-950 leading-tight uppercase tracking-tight">Chronos Orchestrator</h3>
                         <div className="flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-violet-600 animate-pulse" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
                             <span className="text-[9px] font-black uppercase tracking-widest text-violet-750">Orchestrator Online</span>
                         </div>
                     </div>
@@ -174,8 +174,8 @@ export default function ChatPanel({
                 <div className="space-y-6 max-w-2xl mx-auto pb-6">
                     {messages.length === 0 && (
                         <div className="py-16 flex flex-col items-center text-center space-y-4">
-                            <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(139,92,246,1)]">
-                                <Clock className="w-8 h-8 text-violet-600 animate-pulse" />
+                            <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(156,0,255,1)]">
+                                <Clock className="w-8 h-8 text-violet-500 animate-pulse" />
                             </div>
                             <div className="space-y-1.5 px-4">
                                 <h3 className="font-black text-slate-900 uppercase tracking-tight text-lg">Talk to your timeline</h3>
@@ -184,7 +184,7 @@ export default function ChatPanel({
                                 </p>
                             </div>
                             <div className="p-4 bg-white border-2 border-slate-200 text-left rounded-xl space-y-2 max-w-xs text-[10px] font-bold text-slate-600 uppercase tracking-wider shadow-sm">
-                                <p className="text-violet-600 font-black">TRY ASKING:</p>
+                                <p className="text-violet-500 font-black">TRY ASKING:</p>
                                 <p>• "Plan our SaaS web app release in 5 weeks across Engineering, Legal and PR tracks."</p>
                                 <p>• "Frontend API block is delayed by 4 days, shift dates."</p>
                             </div>
@@ -219,7 +219,7 @@ export default function ChatPanel({
                                 <div className={cn(
                                     "max-w-[90%] rounded-none p-5 text-xs shadow-md border-4 border-black transition-all",
                                     msg.role === 'user' 
-                                        ? "bg-violet-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" 
+                                        ? "bg-violet-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" 
                                         : "bg-white text-slate-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                                 )}>
                                     <div className={cn(
@@ -234,8 +234,8 @@ export default function ChatPanel({
                                     {/* Action Box for Create Timeline */}
                                     {isAssistant && msg.type === 'create_timeline' && messageData.code && (
                                         <div className="mt-4 pt-4 border-t-2 border-slate-200 flex flex-col gap-2.5">
-                                            <div className="flex items-center gap-2 text-[10px] font-black text-violet-700 uppercase tracking-widest bg-violet-50 p-2 border border-violet-200">
-                                                <Calendar className="w-4 h-4 text-violet-600" />
+                                            <div className="flex items-center gap-2 text-[10px] font-black text-violet-600 uppercase tracking-widest bg-violet-50 p-2 border border-violet-200">
+                                                <Calendar className="w-4 h-4 text-violet-500" />
                                                 New Roadmap Layout Proposed
                                             </div>
                                             
@@ -243,14 +243,14 @@ export default function ChatPanel({
                                                 <Button 
                                                     onClick={() => handlePreviewCreateTimeline(messageData.code)}
                                                     variant="outline"
-                                                    className="border-violet-600 text-violet-700 hover:bg-violet-100/50 font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2"
+                                                    className="border-violet-500 text-violet-600 hover:bg-violet-100/50 font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2"
                                                 >
                                                     Preview Roadmap
                                                 </Button>
                                                 <Button 
                                                     onClick={onApplyPreview}
                                                     disabled={!previewActive}
-                                                    className="bg-violet-600 hover:bg-violet-700 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                                                 >
                                                     Apply & Save
                                                 </Button>
@@ -277,7 +277,7 @@ export default function ChatPanel({
                                                 <Button 
                                                     onClick={onApplyPreview}
                                                     disabled={!previewActive}
-                                                    className="bg-violet-600 hover:bg-violet-700 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                                                 >
                                                     Apply Changes
                                                 </Button>
@@ -296,9 +296,9 @@ export default function ChatPanel({
                             </div>
                             <div className="bg-white border-4 border-black p-4 text-xs font-bold text-slate-500 uppercase tracking-wide shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
                                 <div className="flex gap-1.5 items-center">
-                                    <div className="w-1.5 h-1.5 bg-violet-600 rounded-full animate-bounce" />
-                                    <div className="w-1.5 h-1.5 bg-violet-600 rounded-full animate-bounce [animation-delay:0.2s]" />
-                                    <div className="w-1.5 h-1.5 bg-violet-600 rounded-full animate-bounce [animation-delay:0.4s]" />
+                                    <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" />
+                                    <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce [animation-delay:0.2s]" />
+                                    <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce [animation-delay:0.4s]" />
                                     <span className="ml-2 text-[10px] text-slate-500 tracking-widest font-black">Orchestrating...</span>
                                 </div>
                             </div>
@@ -327,7 +327,7 @@ export default function ChatPanel({
                     <Button 
                         onClick={handleSend}
                         disabled={!input.trim() || isTyping}
-                        className="bg-violet-600 hover:bg-violet-750 text-white rounded-none border-2 border-black w-10 h-10 p-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0"
+                        className="bg-violet-500 hover:bg-violet-600 text-white rounded-none border-2 border-black w-10 h-10 p-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0"
                     >
                         {isTyping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                     </Button>
@@ -335,7 +335,7 @@ export default function ChatPanel({
                 <div className="flex justify-between items-center text-[8px] text-slate-500 mt-2 font-black uppercase tracking-widest px-1">
                     <span>AI dates recalculate recursively using topological algorithms.</span>
                     {userData && (
-                        <span className="font-black text-violet-600 shrink-0">{userData.credits ?? 0} Credits Left</span>
+                        <span className="font-black text-violet-500 shrink-0">{userData.credits ?? 0} Credits Left</span>
                     )}
                 </div>
             </div>

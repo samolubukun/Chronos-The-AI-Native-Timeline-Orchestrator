@@ -42,7 +42,7 @@ Chronos uses a unique **Sandboxed Script Execution** strategy to coordinate topo
 graph TD
     %% Styling Nodes
     classDef client fill:#0f172a,stroke:#475569,stroke-width:2px,color:#f8fafc;
-    classDef convex fill:#1e1b4b,stroke:#8b5cf6,stroke-width:2px,color:#e0e7ff;
+    classDef convex fill:#1e1b4b,stroke:#9C00FF,stroke-width:2px,color:#e0e7ff;
     classDef ai fill:#1e1b4b,stroke:#8e75ff,stroke-width:2px,color:#e0e7ff;
     
     %% User Actions
