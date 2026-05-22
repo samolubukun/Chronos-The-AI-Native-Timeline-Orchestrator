@@ -12,6 +12,8 @@ export const create = mutation({
     department: v.string(),
     dependencies: v.array(v.id("tasks")),
     assignee: v.optional(v.string()),
+    assigneeIds: v.optional(v.array(v.string())),
+    assigneeEmails: v.optional(v.array(v.string())),
     notes: v.optional(v.string()),
     isMilestone: v.optional(v.boolean()),
   },
@@ -26,6 +28,8 @@ export const create = mutation({
       department: args.department,
       dependencies: args.dependencies,
       assignee: args.assignee,
+      assigneeIds: args.assigneeIds,
+      assigneeEmails: args.assigneeEmails,
       notes: args.notes,
       isMilestone: args.isMilestone,
     });
@@ -53,6 +57,8 @@ export const update = mutation({
     department: v.optional(v.string()),
     dependencies: v.optional(v.array(v.id("tasks"))),
     assignee: v.optional(v.string()),
+    assigneeIds: v.optional(v.array(v.string())),
+    assigneeEmails: v.optional(v.array(v.string())),
     notes: v.optional(v.string()),
     isMilestone: v.optional(v.boolean()),
   },
@@ -63,6 +69,23 @@ export const update = mutation({
 
     // Clean up empty optional fields or apply defined updates
     await ctx.db.patch(id, updates);
+
+    // Notify newly assigned members
+    if (args.assigneeIds && args.assigneeIds.length > 0) {
+      const oldAssignees = new Set(existing.assigneeIds || []);
+      const newAssignees = args.assigneeIds.filter(id => !oldAssignees.has(id));
+      for (const uid of newAssignees) {
+        await ctx.db.insert("notifications", {
+          userId: uid,
+          type: "assignment",
+          title: "New Task Assignment 📌",
+          message: `You have been assigned to the task: "${args.name || existing.name}"`,
+          link: `/workspace/${existing.chronicleId}`,
+          read: false,
+          creationTime: Date.now()
+        });
+      }
+    }
 
     // If status changed to "done", fire completed-trigger automations
     if (args.status === "done" && existing.status !== "done") {
