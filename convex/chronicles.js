@@ -25,35 +25,6 @@ export const create = mutation({
       departments: DEFAULT_DEPARTMENTS,
     });
 
-    // Seed a couple of default tasks so the timeline isn't completely blank
-    const startOfToday = new Date().setHours(9, 0, 0, 0);
-    const endOfToday = new Date().setHours(17, 0, 0, 0);
-    const tomorrow = startOfToday + 24 * 60 * 60 * 1000;
-    const endOfTomorrow = endOfToday + 24 * 60 * 60 * 1000;
-
-    await ctx.db.insert("tasks", {
-      chronicleId,
-      name: "Welcome to Chronos",
-      status: "in_progress",
-      startDate: startOfToday,
-      endDate: endOfToday,
-      color: "violet",
-      department: "Product",
-      dependencies: [],
-      notes: "This is a seed task. You can drag it, edit it, or delete it! Feel free to ask the Chronos AI to structure a complete launch plan for you.",
-    });
-
-    await ctx.db.insert("tasks", {
-      chronicleId,
-      name: "Brainstorm Design Aesthetics",
-      status: "todo",
-      startDate: tomorrow,
-      endDate: endOfTomorrow,
-      color: "emerald",
-      department: "Design",
-      dependencies: [],
-      notes: "Map out custom colors, glassmorphic layout preferences, and timing frameworks.",
-    });
 
     return chronicleId;
   },
