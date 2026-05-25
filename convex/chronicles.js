@@ -59,6 +59,9 @@ export const list = query({
       }
     }
 
+    // Sort by _creationTime in descending order (newest first)
+    allChronicles.sort((a, b) => b._creationTime - a._creationTime);
+
     const chroniclesWithStats = await Promise.all(
       allChronicles.map(async (chronicle) => {
         const tasks = await ctx.db
