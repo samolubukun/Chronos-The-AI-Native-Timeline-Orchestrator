@@ -412,6 +412,7 @@ export default function Workspace({ params }) {
     const updateChronicleDepartments = useMutation(api.chronicles.updateDepartments);
     const inviteMemberMutation = useMutation(api.chronicles.inviteMember);
     const removeMemberMutation = useMutation(api.chronicles.removeMember);
+    const updateMemberRoleMutation = useMutation(api.chronicles.updateMemberRole);
     const updatePresenceMutation = useMutation(api.presence.updatePresence);
 
     // Critical Path
@@ -1544,9 +1545,26 @@ export default function Workspace({ params }) {
                                             <p className="text-[8px] font-bold text-slate-500 leading-none mt-1 truncate">{m.email}</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="px-2 py-0.5 bg-violet-50 text-violet-700 border border-violet-200 text-[8px] font-black uppercase tracking-wider">
-                                                {m.role}
-                                            </span>
+                                            <select
+                                                value={m.role}
+                                                onChange={async (e) => {
+                                                    const newRole = e.target.value;
+                                                    const loadingToast = toast.loading("Updating collaborator role...");
+                                                    try {
+                                                        await updateMemberRoleMutation({
+                                                            id: m._id,
+                                                            role: newRole
+                                                        });
+                                                        toast.success("Role updated successfully!", { id: loadingToast });
+                                                    } catch (err) {
+                                                        toast.error("Failed to update role: " + err.message, { id: loadingToast });
+                                                    }
+                                                }}
+                                                className="bg-white border border-slate-300 h-6 px-1 font-black text-[8px] uppercase focus:outline-none focus:border-violet-500 text-violet-700 tracking-wider cursor-pointer"
+                                            >
+                                                <option value="editor">Editor</option>
+                                                <option value="viewer">Viewer</option>
+                                            </select>
                                             <Button 
                                                 variant="ghost" 
                                                 size="icon" 

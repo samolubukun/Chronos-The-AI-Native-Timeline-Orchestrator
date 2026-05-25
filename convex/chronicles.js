@@ -246,3 +246,18 @@ export const removeMember = mutation({
     return { success: true };
   },
 });
+
+// Update member role mutation
+export const updateMemberRole = mutation({
+  args: {
+    id: v.id("chronicleMembers"),
+    role: v.string(), // "editor" | "viewer" | "admin"
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.id, {
+      role: args.role,
+    });
+    return { success: true };
+  },
+});
+

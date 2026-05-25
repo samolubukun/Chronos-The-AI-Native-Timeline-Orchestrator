@@ -4,7 +4,7 @@ import { api } from "./_generated/api";
 import { langSearch } from "../lib/langsearch";
 import { firecrawlScrape } from "../lib/firecrawl";
 
-const model = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite-preview";
+const model = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 
 export const orchestrate = action({
   args: {
