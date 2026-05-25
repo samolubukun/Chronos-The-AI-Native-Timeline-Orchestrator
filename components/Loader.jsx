@@ -16,9 +16,9 @@ const Loader = () => {
                 <div className="absolute flex flex-col items-center justify-center">
                     <div className="relative h-20 w-20 flex items-center justify-center bg-white rounded-3xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(156,0,255,1)] overflow-hidden">
                         <img 
-                            src="/logo.png" 
+                            src="/logo.svg" 
                             alt="Chronos" 
-                            className="h-12 w-12 object-contain animate-pulse"
+                            className="h-full w-full p-1.5 object-contain animate-pulse"
                         />
                     </div>
                 </div>
