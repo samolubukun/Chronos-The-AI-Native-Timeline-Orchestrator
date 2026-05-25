@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="pt-20 md:pt-32 pb-12 md:pb-16 px-6 border-t-8 border-black text-center bg-[#1a0f2b]">
             <div className="flex flex-col justify-center items-center gap-6 mb-12">
                 <div className="w-24 h-24 bg-white border-4 border-black flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] overflow-hidden">
-                    <img src="/logo.png" alt="Chronos" className="w-16 h-16 object-contain" />
+                    <img src="/logo.svg" alt="Chronos" className="w-full h-full p-2 object-contain" />
                 </div>
                 <span className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic">Chronos</span>
             </div>
