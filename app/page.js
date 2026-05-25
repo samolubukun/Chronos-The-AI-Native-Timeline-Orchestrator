@@ -143,7 +143,7 @@ export default function LandingPage() {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="inline-flex items-center gap-2 px-4 py-2 border-4 border-black bg-violet-400 text-white mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                                 <Hourglass className="w-4 h-4 text-violet-100 font-bold" />
+                                 <Hourglass className="w-4 h-4 text-white" strokeWidth={3} />
                                  <span className="text-xs font-black uppercase tracking-[0.2em]">The AI-Native Timeline Orchestrator</span>
                             </div>
 
