@@ -91,7 +91,7 @@ function AppHeader() {
             <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
                 <Link href="/dashboard" className="flex items-center gap-1.5 sm:gap-2.5 animate-in fade-in duration-300">
                     <div className="w-9 h-9 bg-white border-2 border-black rounded-lg flex items-center justify-center overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <img src="/logo.png" alt="Chronos Logo" className="w-6 h-6 object-contain" />
+                        <img src="/logo.svg" alt="Chronos Logo" className="w-full h-full p-0.5 object-contain" />
                     </div>
                     <span className={`text-base sm:text-lg md:text-xl font-black tracking-tighter text-slate-950 uppercase italic ${
                         isWorkspace ? 'hidden sm:inline' : ''
