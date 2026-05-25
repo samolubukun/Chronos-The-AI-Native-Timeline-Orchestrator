@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="32" fill="#FFFFFF"/>
+  
+  <g transform="translate(64, 64) scale(1.58) translate(-60, -60)">
+    <path d="M88 40C82 31 72 26 60 26C41.2 26 26 41.2 26 60C26 78.8 41.2 94 60 94C72 94 82 89 88 80" stroke="url(#c-glow-light)" stroke-width="12" stroke-linecap="round"/>
+    
+    <rect x="40" y="44" width="32" height="6" rx="3" fill="#9C00FF"/>
+    <rect x="52" y="56" width="44" height="6" rx="3" fill="#06B6D4"/>
+    <rect x="46" y="68" width="24" height="6" rx="3" fill="#CBD5E1"/>
+    
+    <path d="M60 60L76 32" stroke="#F43F5E" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="60" cy="60" r="5" fill="#0F172A"/>
+    <circle cx="76" cy="32" r="3" fill="#F43F5E"/>
+  </g>
+  
+  <defs>
+    <linearGradient id="c-glow-light" x1="26" y1="26" x2="88" y2="94" gradientUnits="userSpaceOnUse" gradientTransform="translate(64, 64) scale(1.58) translate(-60, -60)">
+      <stop stop-color="#9C00FF"/>
+      <stop offset="1" stop-color="#4C1D95"/>
+    </linearGradient>
+  </defs>
+</svg>
