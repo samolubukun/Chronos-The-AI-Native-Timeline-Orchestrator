@@ -29,7 +29,7 @@ export function CreateChronicleModal({ isOpen, onClose, onCreate }) {
             <DialogContent className="sm:max-w-[425px] border-4 border-black rounded-none shadow-[12px_12px_0px_0px_rgba(156,0,255,1)] p-8 bg-white text-slate-950">
                 <DialogHeader>
                     <div className="w-14 h-14 border-2 border-black flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_rgba(156,0,255,1)] bg-white overflow-hidden p-1.5">
-                        <img src="/logo.png" alt="Chronos Logo" className="w-full h-full object-contain" />
+                        <img src="/logo.svg" alt="Chronos Logo" className="w-full h-full object-contain" />
                     </div>
                     <DialogTitle className="text-2xl font-black uppercase tracking-tighter text-slate-950">Initialize Chronicle</DialogTitle>
                     <DialogDescription className="text-xs font-bold uppercase tracking-widest text-slate-600 mt-2">
