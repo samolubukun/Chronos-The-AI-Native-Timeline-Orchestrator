@@ -13,7 +13,7 @@ export default function Header() {
         <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-10 md:py-3.5 flex justify-between items-center border-b-4 border-black bg-white">
             <div className="flex items-center gap-2 md:gap-2.5">
                 <div className="w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-                    <img src="/logo.png" alt="Chronos" className="w-7 h-7 object-contain" />
+                    <img src="/logo.svg" alt="Chronos" className="w-full h-full p-0.5 object-contain" />
                 </div>
                 <span className="text-lg md:text-xl font-black tracking-tighter text-slate-950 uppercase italic">
                     Chronos
