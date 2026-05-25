@@ -19,9 +19,9 @@ export const metadata = {
   title: "Chronos | AI-Native Process & Timeline Orchestrator",
   description: "Talk to your timelines in natural language. Build roadmaps, trigger milestone automations, and shift dates recursively with AI.",
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
 };
 
