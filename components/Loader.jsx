@@ -32,8 +32,8 @@ const Loader = () => {
                     </h2>
                     <div className="h-1 w-12 bg-violet-500"></div>
                 </div>
-                <div className="flex flex-col items-center">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 animate-pulse">
+                <div className="flex flex-col items-center max-w-xs px-4">
+                    <p className="text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.3em] text-slate-400 animate-pulse text-center">
                         Initializing Chronos Orchestrator
                     </p>
                     <div className="mt-4 flex gap-1">

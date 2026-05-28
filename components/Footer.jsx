@@ -2,12 +2,12 @@ import { Zap } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="pt-20 md:pt-32 pb-12 md:pb-16 px-6 border-t-8 border-black text-center bg-[#1a0f2b]">
+        <footer className="pt-12 md:pt-32 pb-8 md:pb-16 px-4 sm:px-6 border-t-8 border-black text-center bg-[#1a0f2b]">
             <div className="flex flex-col justify-center items-center gap-6 mb-12">
-                <div className="w-24 h-24 bg-white border-4 border-black flex items-center justify-center shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] overflow-hidden">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(156,0,255,1)] sm:shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] overflow-hidden">
                     <img src="/logo.svg" alt="Chronos" className="w-full h-full p-2 object-contain" />
                 </div>
-                <span className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic">Chronos</span>
+                <span className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic">Chronos</span>
             </div>
             <div className="space-y-6">
                 <p className="text-violet-200 text-[10px] md:text-sm font-black uppercase tracking-[0.2em] px-4 leading-relaxed max-w-md mx-auto italic">

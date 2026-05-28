@@ -134,7 +134,7 @@ export default function LandingPage() {
 
             <main className="flex-1">
                 {/* Hero */}
-                <section className="relative pt-32 md:pt-48 pb-20 md:pb-40 px-6 border-b-8 border-black bg-white chronos-canvas-mesh">
+                <section className="relative pt-32 md:pt-48 pb-20 md:pb-40 px-4 sm:px-6 border-b-8 border-black bg-white chronos-canvas-mesh">
                     <BackgroundElements />
                     <div className="max-w-7xl mx-auto text-center relative z-10">
                         <motion.div
@@ -142,24 +142,24 @@ export default function LandingPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 border-4 border-black bg-violet-400 text-white mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                                 <Hourglass className="w-4 h-4 text-white" strokeWidth={3} />
-                                 <span className="text-xs font-black uppercase tracking-[0.2em]">The AI-Native Timeline Orchestrator</span>
+                            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 border-4 border-black bg-violet-400 text-white mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-full overflow-hidden">
+                                 <Hourglass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" strokeWidth={3} />
+                                 <span className="text-[8.5px] sm:text-xs font-black uppercase tracking-[0.02em] sm:tracking-[0.2em] whitespace-nowrap">The AI-Native Timeline Orchestrator</span>
                             </div>
 
-                            <h1 className="text-5xl sm:text-7xl md:text-9xl font-black mb-8 leading-[0.9] tracking-tighter text-slate-950 uppercase">
+                            <h1 className="text-3xl sm:text-5xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] tracking-tighter text-slate-950 uppercase">
                                 Talk to your <br />
-                                <span className="bg-white text-black border-4 border-black px-6 py-2 inline-block -rotate-1 shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] mt-4">Timeline.</span>
+                                <span className="bg-white text-black border-4 border-black px-4 sm:px-6 py-1.5 sm:py-2 inline-block -rotate-1 shadow-[4px_4px_0px_0px_rgba(156,0,255,1)] sm:shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] mt-4 max-w-full truncate">Timeline.</span>
                             </h1>
 
-                            <p className="text-xl md:text-3xl text-slate-700 max-w-3xl mx-auto mb-12 font-black leading-tight uppercase tracking-tight px-4">
+                            <p className="text-base sm:text-xl md:text-3xl text-slate-700 max-w-3xl mx-auto mb-12 font-black leading-tight uppercase tracking-tight px-4">
                                 The era of manual Gantt charts and stale task boards is dead. Chronos uses recursive AI sandboxing to build and heal your plans dynamically.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-4">
+                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-4 w-full">
                                 <Button
                                     onClick={handleGetStarted}
-                                    className="w-full sm:w-auto px-12 py-8 text-xl md:text-2xl rounded-none bg-violet-500 text-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-black uppercase tracking-widest h-auto"
+                                    className="w-full sm:w-auto px-6 sm:px-12 py-5 sm:py-8 text-base sm:text-xl md:text-2xl rounded-none bg-violet-500 text-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-black uppercase tracking-widest h-auto"
                                 >
                                     Get Started Free
                                 </Button>
@@ -169,14 +169,14 @@ export default function LandingPage() {
                 </section>
 
                 {/* Ticker Banner */}
-                <section className="py-12 bg-black border-b-8 border-black overflow-hidden whitespace-nowrap">
+                <section className="py-8 sm:py-12 bg-black border-b-8 border-black overflow-hidden whitespace-nowrap">
                     <motion.div 
                         animate={{ x: [0, -1000] }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                         className="flex items-center gap-12"
                     >
                         {[...Array(10)].map((_, i) => (
-                            <div key={i} className="flex items-center gap-8 text-white font-black uppercase tracking-[0.3em] text-xl md:text-3xl">
+                            <div key={i} className="flex items-center gap-8 text-white font-black uppercase tracking-[0.15em] sm:tracking-[0.3em] text-lg sm:text-xl md:text-3xl">
                                 <span>Recursive Date Reflow</span>
                                 <div className="w-3 h-3 bg-violet-500 rotate-45" />
                                 <span>Zero Admin Drag</span>
@@ -189,12 +189,12 @@ export default function LandingPage() {
                 </section>
 
                 {/* Trilogy Narrative Section */}
-                <section className="py-24 md:py-40 px-6 bg-white border-b-8 border-black">
+                <section className="py-16 sm:py-24 md:py-40 px-4 sm:px-6 bg-white border-b-8 border-black">
                     <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                            <div className="space-y-8">
-                                <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.4em] text-violet-500">The Timeline Orchestrator</h2>
-                                <h3 className="text-4xl md:text-7xl font-black text-slate-950 leading-[0.9] uppercase tracking-tighter italic">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                            <div className="space-y-6 sm:space-y-8">
+                                <h2 className="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-violet-500">The Timeline Orchestrator</h2>
+                                <h3 className="text-3xl sm:text-5xl md:text-7xl font-black text-slate-950 leading-[0.9] uppercase tracking-tighter italic">
                                     Orchestrating Time, dependencies, and <span className="text-violet-500 underline decoration-emerald-400">Execution.</span>
                                 </h3>
                                 <div className="space-y-6 pt-6">
@@ -204,30 +204,30 @@ export default function LandingPage() {
                                          "Event Action Studio auto-shifts downstream dates",
                                          "Sandboxed Math Engine guarantees 100% calculation safety"
                                      ].map((text, i) => (
-                                         <div key={i} className="flex items-start gap-4">
-                                             <div className="mt-1 w-6 h-6 border-2 border-black bg-violet-500 flex items-center justify-center shrink-0">
-                                                 <CheckCircle2 className="w-4 h-4 text-white" />
+                                         <div key={i} className="flex items-start gap-3 sm:gap-4">
+                                             <div className="mt-1 w-5.5 h-5.5 sm:w-6 sm:h-6 border-2 border-black bg-violet-500 flex items-center justify-center shrink-0">
+                                                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                                              </div>
-                                             <p className="text-xl font-bold text-slate-800 uppercase tracking-tight">{text}</p>
+                                             <p className="text-base sm:text-xl font-bold text-slate-800 uppercase tracking-tight leading-snug">{text}</p>
                                          </div>
                                      ))}
                                 </div>
                             </div>
-                            <div className="relative">
-                                <div className="w-full aspect-square border-8 border-black bg-slate-100 shadow-[20px_20px_0px_0px_rgba(156,0,255,1)] relative flex items-center justify-center overflow-hidden group">
+                            <div className="relative px-2 sm:px-0">
+                                <div className="w-full aspect-square border-4 sm:border-8 border-black bg-slate-100 shadow-[10px_10px_0px_0px_rgba(156,0,255,1)] sm:shadow-[20px_20px_0px_0px_rgba(156,0,255,1)] relative flex items-center justify-center overflow-hidden group">
                                     <div className="absolute inset-0 bg-violet-900/5 backdrop-blur-sm z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <Calendar className="w-48 h-48 text-violet-500/20 group-hover:scale-110 transition-transform duration-500" />
+                                    <Calendar className="w-32 h-32 sm:w-48 sm:h-48 text-violet-500/20 group-hover:scale-110 transition-transform duration-500" />
                                     
-                                    <div className="absolute inset-4 border-4 border-dashed border-violet-500/20 flex flex-col items-center justify-center">
-                                        <div className="w-72 bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] mb-4">
+                                    <div className="absolute inset-2 sm:inset-4 border-2 sm:border-4 border-dashed border-violet-500/20 flex flex-col items-center justify-center">
+                                        <div className="w-full max-w-[240px] sm:w-72 bg-white border-4 border-black p-3 sm:p-4 shadow-[4px_4px_0px_0px_rgba(156,0,255,1)] sm:shadow-[8px_8px_0px_0px_rgba(156,0,255,1)] mb-4">
                                             <div className="flex justify-between items-center mb-3">
-                                                <div className="w-20 h-2 bg-slate-200" />
-                                                <div className="w-10 h-3 bg-violet-500 rounded" />
+                                                <div className="w-16 sm:w-20 h-2 bg-slate-200" />
+                                                <div className="w-8 sm:w-10 h-3 bg-violet-500 rounded" />
                                             </div>
                                             <div className="w-full h-3 bg-slate-100 rounded mb-2" />
                                             <div className="w-3/4 h-2 bg-emerald-500 rounded" />
                                         </div>
-                                         <p className="font-black text-violet-500 uppercase tracking-widest text-xs animate-pulse">Running Temporal Reflow...</p>
+                                         <p className="font-black text-violet-500 uppercase tracking-widest text-[10px] sm:text-xs animate-pulse">Running Temporal Reflow...</p>
                                      </div>
                                 </div>
                             </div>
@@ -236,20 +236,20 @@ export default function LandingPage() {
                 </section>
 
                 {/* Core Features Grid */}
-                <section className="py-24 md:py-40 px-6 bg-slate-50 border-b-8 border-black">
+                <section className="py-16 sm:py-24 md:py-40 px-4 sm:px-6 bg-slate-50 border-b-8 border-black">
                     <div className="max-w-7xl mx-auto">
-                        <div className="flex flex-col md:flex-row items-baseline gap-4 mb-16 border-b-4 border-slate-300 pb-8">
-                            <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tighter">The Chronos <span className="text-violet-500 italic">Infrastructure.</span></h2>
-                            <p className="text-xs font-black uppercase tracking-widest text-slate-500">03 / Core Features</p>
+                        <div className="flex flex-col md:flex-row items-baseline gap-4 mb-10 sm:mb-16 border-b-4 border-slate-300 pb-6 sm:pb-8">
+                            <h2 className="text-2xl sm:text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tighter">The Chronos <span className="text-violet-500 italic">Infrastructure.</span></h2>
+                            <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-500">03 / Core Features</p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
                             {features.map((f, i) => (
-                                <div key={i} className="p-10 border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(156,0,255,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all group">
-                                    <div className="w-16 h-16 border-4 border-black bg-violet-500 flex items-center justify-center mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                                        <f.icon className="w-8 h-8 text-white font-bold" />
+                                <div key={i} className="p-5 sm:p-8 md:p-10 border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(156,0,255,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all group">
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-black bg-violet-500 flex items-center justify-center mb-6 sm:mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                        <f.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white font-bold" />
                                     </div>
-                                    <h3 className="text-2xl font-black mb-4 text-slate-950 uppercase tracking-tighter">{f.title}</h3>
-                                    <p className="text-slate-600 font-bold leading-relaxed text-sm">{f.desc}</p>
+                                    <h3 className="text-xl sm:text-2xl font-black mb-4 text-slate-950 uppercase tracking-tighter">{f.title}</h3>
+                                    <p className="text-slate-600 font-bold leading-relaxed text-xs sm:text-sm">{f.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -257,49 +257,47 @@ export default function LandingPage() {
                 </section>
                 
                 {/* Agent Protocol Section */}
-                <section className="py-24 md:py-40 px-6 bg-white border-y-8 border-black overflow-hidden relative">
+                <section className="py-16 sm:py-24 md:py-40 px-4 sm:px-6 bg-white border-y-8 border-black overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px] -mr-48 -mt-48" />
                     <div className="max-w-7xl mx-auto relative z-10">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-20 gap-6 sm:gap-8">
                             <div className="max-w-2xl">
-                                 <h2 className="text-sm font-black uppercase tracking-[0.4em] text-violet-500 mb-4">The Chronos Protocol</h2>
-                                <h3 className="text-5xl md:text-8xl font-black text-slate-950 leading-[0.9] uppercase tracking-tighter">
+                                 <h2 className="text-[11px] sm:text-sm font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-violet-500 mb-4">The Chronos Protocol</h2>
+                                <h3 className="text-3xl sm:text-5xl md:text-8xl font-black text-slate-950 leading-[0.9] uppercase tracking-tighter">
                                     Agent <br /><span className="text-violet-500 italic underline decoration-black">Capabilities.</span>
                                 </h3>
                             </div>
-                            <p className="text-slate-600 font-bold max-w-sm uppercase text-xs leading-relaxed tracking-wider">
+                            <p className="text-slate-600 font-bold max-w-sm uppercase text-[10px] sm:text-xs leading-relaxed tracking-wider">
                                 Leverage your temporal planning partner. Deploy natural language queries to draft complex schedules, recursive delay shifts, and action triggers.
                             </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 gap-12">
+                        </div>                        <div className="grid grid-cols-1 gap-8 sm:gap-12">
                             {agentProtocols.map((protocol, i) => (
                                 <div key={i} className="group relative">
-                                    <div className="absolute inset-0 bg-violet-500 translate-x-2 translate-y-2 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300" />
-                                    <div className="relative bg-white border-4 border-black p-8 md:p-16 flex flex-col lg:flex-row gap-12 lg:items-center">
-                                        <div className="lg:w-1/3 space-y-6">
-                                            <div className="w-20 h-20 bg-black flex items-center justify-center border-4 border-violet-500 shadow-[4px_4px_0px_0px_rgba(156,0,255,1)]">
-                                                <protocol.icon className="w-10 h-10 text-violet-500" />
+                                    <div className="absolute inset-0 bg-violet-500 translate-x-1.5 translate-y-1.5 sm:translate-x-2 sm:translate-y-2 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300" />
+                                    <div className="relative bg-white border-4 border-black p-5 sm:p-8 md:p-16 flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-center">
+                                        <div className="lg:w-1/3 space-y-4 sm:space-y-6">
+                                            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-black flex items-center justify-center border-4 border-violet-500 shadow-[4px_4px_0px_0px_rgba(156,0,255,1)]">
+                                                <protocol.icon className="w-8 h-8 sm:w-10 sm:h-10 text-violet-500" />
                                             </div>
-                                            <h4 className="text-4xl font-black text-slate-950 uppercase tracking-tighter leading-tight">{protocol.title}</h4>
-                                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-violet-50 border-2 border-violet-200 text-violet-750 text-[10px] font-black uppercase tracking-widest">
-                                                <Zap className="w-3 h-3 text-emerald-600" />
+                                            <h4 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-950 uppercase tracking-tighter leading-tight">{protocol.title}</h4>
+                                            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-violet-50 border-2 border-violet-200 text-violet-750 text-[8.5px] sm:text-[10px] font-black uppercase tracking-[0.02em] sm:tracking-widest whitespace-nowrap">
+                                                <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-600 shrink-0" />
                                                 {protocol.mechanic}
                                             </div>
-                                            <p className="text-slate-600 font-bold leading-relaxed">{protocol.desc}</p>
+                                            <p className="text-slate-600 font-bold leading-relaxed text-xs sm:text-sm">{protocol.desc}</p>
                                         </div>
-
-                                        <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            <div className="bg-slate-50 border-4 border-black p-6 space-y-4">
-                                                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Example Command</span>
-                                                <div className="bg-white border-2 border-slate-200 p-4 rounded-lg shadow-inner italic font-bold text-slate-700 text-sm">
+ 
+                                        <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                                            <div className="bg-slate-50 border-4 border-black p-4 sm:p-6 space-y-3 sm:space-y-4">
+                                                <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-500">Example Command</span>
+                                                <div className="bg-white border-2 border-slate-200 p-3 sm:p-4 rounded-lg shadow-inner italic font-bold text-slate-700 text-xs sm:text-sm">
                                                     "{protocol.query}"
                                                 </div>
                                             </div>
-                                            <div className="bg-violet-50/50 border-4 border-violet-200 p-6 space-y-4">
-                                                <span className="text-[10px] font-black uppercase tracking-widest text-violet-700">Expected Outcome</span>
-                                                 <p className="text-sm font-bold text-violet-800 leading-snug">
-                                                    {protocol.outcome}
+                                            <div className="bg-violet-50/50 border-4 border-violet-200 p-4 sm:p-6 space-y-3 sm:space-y-4">
+                                                <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-violet-700">Expected Outcome</span>
+                                                 <p className="text-xs sm:text-sm font-bold text-violet-800 leading-snug">
+                                                     {protocol.outcome}
                                                 </p>
                                             </div>
                                         </div>
@@ -311,18 +309,18 @@ export default function LandingPage() {
                 </section>
 
                 {/* Final CTA */}
-                <section className="py-20 md:py-40 px-6 bg-slate-50 border-t-8 border-black">
+                <section className="py-16 sm:py-20 md:py-40 px-4 sm:px-6 bg-slate-50 border-t-8 border-black">
                     <div className="max-w-5xl mx-auto">
-                        <div className="bg-white p-12 md:p-24 text-center border-8 border-black shadow-[20px_20px_0px_0px_rgba(156,0,255,1)]">
-                            <h2 className="text-4xl md:text-7xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
+                        <div className="bg-white p-5 sm:p-12 md:p-24 text-center border-4 sm:border-8 border-black shadow-[10px_10px_0px_0px_rgba(156,0,255,1)] sm:shadow-[20px_20px_0px_0px_rgba(156,0,255,1)]">
+                            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-slate-950 mb-6 sm:mb-8 uppercase tracking-tighter leading-[0.9]">
                                 Ready to <span className="text-violet-500 italic">orchestrate</span> your time?
                             </h2>
-                             <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-12 font-bold uppercase tracking-tight leading-tight">
+                             <p className="text-base sm:text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-12 font-bold uppercase tracking-tight leading-tight">
                                 Join elite builders who plan launches via conversation, leaving manual Gantt drag in the past.
                             </p>
                             <Button
                                 onClick={handleGetStarted}
-                                className="w-full sm:w-auto px-16 py-8 text-2xl rounded-none bg-violet-500 text-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all font-black uppercase tracking-widest h-auto"
+                                className="w-full sm:w-auto px-6 sm:px-16 py-5 sm:py-8 text-base sm:text-xl md:text-2xl rounded-none bg-violet-500 text-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all font-black uppercase tracking-widest h-auto"
                             >
                                 Get Started Free
                             </Button>
