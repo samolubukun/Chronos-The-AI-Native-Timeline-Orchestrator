@@ -112,8 +112,8 @@ export default function EventActionStudioModal({ isOpen, onClose, chronicleId })
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[780px] border-4 border-black rounded-none shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
-                <DialogHeader className="p-6 pb-4 border-b-2 border-slate-200">
+            <DialogContent className="w-[92vw] sm:w-full sm:max-w-[780px] border-4 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
+                <DialogHeader className="p-4 sm:p-6 pb-4 border-b-2 border-slate-200">
                     <div className="flex items-center gap-3">
                         <div className="w-12 h-12 border-2 border-black bg-amber-500 flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-white">
                             <Zap className="w-6 h-6 fill-white" />
@@ -127,7 +127,7 @@ export default function EventActionStudioModal({ isOpen, onClose, chronicleId })
                     </div>
                 </DialogHeader>
 
-                <div className="flex-1 overflow-y-auto p-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-8 no-scrollbar">
+                <div className="flex-1 overflow-y-auto p-4 sm:p-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-8 no-scrollbar">
                     <form onSubmit={handleCreateRule} className="flex flex-col h-full">
                         <h3 className="text-xs font-black uppercase tracking-widest text-violet-500 border-b border-slate-200 pb-2">New Automation Rule</h3>
                         <div className="flex-1 space-y-4 overflow-y-auto no-scrollbar pr-1 mt-4">

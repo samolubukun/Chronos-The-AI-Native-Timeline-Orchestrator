@@ -24,7 +24,6 @@ export default function ChatPanel({
     const [input, setInput] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const scrollRef = useRef(null);
-    const textareaRef = useRef(null);
 
     const messages = useQuery(api.messages.list, { chronicleId }) || [];
     const currentTasks = useQuery(api.tasks.listByChronicle, { chronicleId }) || [];
@@ -43,14 +42,6 @@ export default function ChatPanel({
             }
         }
     }, [messages, isTyping]);
-
-    // Auto-resize chat input height
-    useEffect(() => {
-        if (textareaRef.current) {
-            textareaRef.current.style.height = 'auto';
-            textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 160)}px`;
-        }
-    }, [input]);
 
     const handleSend = async () => {
         if (!input.trim()) return;
@@ -143,7 +134,7 @@ export default function ChatPanel({
     };
 
     return (
-        <div className="flex flex-col h-full bg-slate-50 overflow-hidden w-full border-l-4 border-black">
+        <div className="flex flex-col h-full bg-slate-50 overflow-hidden w-full md:border-l-4 border-black">
             {/* Header */}
             <header className="p-4 border-b-4 border-black flex items-center justify-between shrink-0 bg-white">
                 <div className="flex items-center gap-3">
@@ -246,14 +237,14 @@ export default function ChatPanel({
                                                 <Button 
                                                     onClick={() => handlePreviewCreateTimeline(messageData.code)}
                                                     variant="outline"
-                                                    className="border-violet-500 text-violet-600 hover:bg-violet-100/50 font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2"
+                                                    className="border-violet-500 text-violet-600 hover:bg-violet-100/50 font-black uppercase tracking-wider text-[9px] h-9 rounded-none border-2 px-1"
                                                 >
                                                     Preview Roadmap
                                                 </Button>
                                                 <Button 
                                                     onClick={onApplyPreview}
                                                     disabled={!previewActive || currentUserRole === "viewer"}
-                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-wider text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed px-1"
                                                 >
                                                     {currentUserRole === "viewer" ? "Apply (Locked)" : "Apply & Save"}
                                                 </Button>
@@ -273,14 +264,14 @@ export default function ChatPanel({
                                                 <Button 
                                                     onClick={() => handlePreviewReschedule(messageData.code)}
                                                     variant="outline"
-                                                    className="border-amber-600 text-amber-700 hover:bg-amber-100/50 font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2"
+                                                    className="border-amber-600 text-amber-700 hover:bg-amber-100/50 font-black uppercase tracking-wider text-[9px] h-9 rounded-none border-2 px-1"
                                                 >
                                                     Preview Reflow
                                                 </Button>
                                                 <Button 
                                                     onClick={onApplyPreview}
                                                     disabled={!previewActive || currentUserRole === "viewer"}
-                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-widest text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="bg-violet-500 hover:bg-violet-600 text-white font-black uppercase tracking-wider text-[9px] h-9 rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed px-1"
                                                 >
                                                     {currentUserRole === "viewer" ? "Apply (Locked)" : "Apply Changes"}
                                                 </Button>
@@ -321,19 +312,18 @@ export default function ChatPanel({
             ) : (
                 <div className="p-4 bg-white border-t-4 border-black shrink-0">
                     <div className="relative flex items-center gap-2 max-w-2xl mx-auto">
-                        <textarea
-                            ref={textareaRef}
-                            rows={1}
+                        <input
+                            type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={(e) => {
-                                if (e.key === 'Enter' && !e.shiftKey) {
+                                if (e.key === 'Enter') {
                                     e.preventDefault();
                                     handleSend();
                                 }
                             }}
                             placeholder="Explain timeline constraints, shifts, or triggers..."
-                            className="flex-1 bg-slate-50 border-2 border-black rounded-none px-4 py-[11px] text-xs focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all text-slate-950 placeholder:text-slate-400 resize-none max-h-[160px] overflow-y-auto no-scrollbar font-bold uppercase tracking-tight"
+                            className="flex-1 bg-slate-50 border-2 border-black rounded-none px-4 h-10 text-xs focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all text-slate-950 placeholder:text-slate-400 font-bold uppercase tracking-tight"
                         />
                         <Button 
                             onClick={handleSend}
@@ -343,8 +333,8 @@ export default function ChatPanel({
                             {isTyping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                         </Button>
                     </div>
-                    <div className="flex justify-between items-center text-[8px] text-slate-500 mt-2 font-black uppercase tracking-widest px-1">
-                        <span>AI dates recalculate recursively using topological algorithms.</span>
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5 text-[8px] text-slate-500 mt-2 font-black uppercase tracking-widest px-1">
+                        <span className="leading-normal">AI dates recalculate recursively using topological algorithms.</span>
                         {userData && (
                             <span className="font-black text-violet-500 shrink-0">{userData.credits ?? 0} Credits Left</span>
                         )}

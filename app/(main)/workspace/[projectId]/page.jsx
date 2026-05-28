@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { 
     ChevronLeft, Plus, Settings2, Sparkles, Undo2, Redo2,
     Calendar, Users, Clock, Trash2, ArrowRight, Zap, Bell,
-    CheckCircle2, AlertCircle, FileText, UserPlus, Info, Check, Play
+    CheckCircle2, AlertCircle, FileText, UserPlus, Info, Check, Play, Bot
 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Loader from '@/components/Loader'
@@ -257,6 +257,7 @@ export default function Workspace({ params }) {
     const resolvedParams = use(params);
     const chronicleId = resolvedParams.projectId;
 
+    const [activeTab, setActiveTab] = useState("timeline"); // "timeline" | "chat"
     const [isChatOpen, setIsChatOpen] = useState(true);
     const [isStudioOpen, setIsStudioOpen] = useState(false);
     const [previewData, setPreviewData] = useState(null);
@@ -677,7 +678,7 @@ export default function Workspace({ params }) {
     }, [timelineBounds]);
 
     const gridWidth = useMemo(() => {
-        return Math.max(960, (timescaleHeaders?.length || 0) * 80);
+        return Math.max(1400, (timescaleHeaders?.length || 0) * 140);
     }, [timescaleHeaders]);
 
     // Calculate vertical offset for each department row dynamically
@@ -773,33 +774,33 @@ export default function Workspace({ params }) {
         <div className="h-full w-full bg-slate-50 flex flex-col overflow-hidden text-slate-950 font-sans">
             
             {/* Header / Toolbar switcher */}
-            <header className="h-16 border-b-4 border-black flex items-center justify-between px-4 bg-white z-30">
-                <div className="flex items-center gap-4">
+            <header className="h-16 border-b-4 border-black flex items-center justify-between px-2 sm:px-4 bg-white z-30">
+                <div className="flex items-center gap-1 sm:gap-4 min-w-0">
                     <Button 
                         variant="ghost" 
                         size="icon" 
                         onClick={() => window.history.back()} 
-                        className="rounded-lg hover:bg-slate-100 text-slate-500"
+                        className="rounded-lg hover:bg-slate-100 text-slate-500 h-8 w-8 sm:h-10 sm:w-10"
                     >
-                        <ChevronLeft className="w-5 h-5" />
+                        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
-                    <div className="flex flex-col">
-                        <div className="flex items-center gap-2">
-                            <h1 className="text-base font-black text-slate-950 uppercase italic tracking-tight leading-tight">{chronicle.name}</h1>
-                            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-violet-50 border border-violet-200 rounded">
-                                <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
-                                <span className="text-[8px] font-black uppercase tracking-widest text-violet-750">Sync Live</span>
+                    <div className="flex flex-col min-w-0">
+                        <div className="flex items-center gap-1 sm:gap-2 min-w-0">
+                            <h1 className="hidden sm:block text-xs sm:text-base font-black text-slate-950 uppercase italic tracking-tight leading-tight truncate max-w-[150px] md:max-w-none" title={chronicle.name}>{chronicle.name}</h1>
+                            <div className="hidden sm:flex items-center gap-1 px-1 py-0.5 bg-violet-50 border border-violet-200 rounded shrink-0">
+                                <div className="w-1 h-1 rounded-full bg-violet-500 animate-pulse" />
+                                <span className="text-[6.5px] sm:text-[8px] font-black uppercase tracking-widest text-violet-750">Live</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
                     {previewData && (
-                        <div className="flex items-center bg-amber-50 p-1 border-2 border-amber-500 gap-2 text-xs font-bold uppercase tracking-wider animate-pulse px-3 h-10">
-                            <Zap className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span>Previewing Shift</span>
-                            <div className="w-px h-5 bg-amber-200" />
+                        <div className="flex items-center bg-amber-50 p-1 border border-amber-500 gap-1.5 text-[9px] sm:text-xs font-black uppercase tracking-wider animate-pulse px-2 sm:px-3 h-8 sm:h-10 shrink-0">
+                            <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-amber-500 fill-amber-500 shrink-0" />
+                            <span className="hidden xs:inline">Previewing</span>
+                            <div className="w-px h-4 bg-amber-200" />
                             <button 
                                 onClick={() => {
                                     setPreviewData(null);
@@ -811,28 +812,28 @@ export default function Workspace({ params }) {
                             </button>
                             <button 
                                 onClick={handleApplyPreview}
-                                className="text-emerald-700 hover:text-emerald-600 hover:underline ml-2"
+                                className="text-emerald-700 hover:text-emerald-600 hover:underline ml-1"
                             >
-                                Apply Changes
+                                Apply
                             </button>
                         </div>
                     )}
-                    <div className="flex items-center gap-1 mr-1">
+                    <div className="flex items-center gap-0.5 shrink-0">
                         <button
                             onClick={handleUndo}
                             disabled={pastStates.length === 0}
-                            className="p-2 rounded hover:bg-slate-100 text-slate-600 disabled:text-slate-300 disabled:cursor-not-allowed transition-colors"
+                            className="p-1 sm:p-2 rounded hover:bg-slate-100 text-slate-600 disabled:text-slate-300 disabled:cursor-not-allowed transition-colors"
                             title="Undo (Ctrl+Z)"
                         >
-                            <Undo2 className="w-4 h-4" />
+                            <Undo2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                         </button>
                         <button
                             onClick={handleRedo}
                             disabled={futureStates.length === 0}
-                            className="p-2 rounded hover:bg-slate-100 text-slate-600 disabled:text-slate-300 disabled:cursor-not-allowed transition-colors"
+                            className="p-1 sm:p-2 rounded hover:bg-slate-100 text-slate-600 disabled:text-slate-300 disabled:cursor-not-allowed transition-colors"
                             title="Redo (Ctrl+Y)"
                         >
-                            <Redo2 className="w-4 h-4" />
+                            <Redo2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                         </button>
                     </div>
 
@@ -840,35 +841,35 @@ export default function Workspace({ params }) {
 
                     <Button 
                         onClick={() => setIsInviteOpen(true)}
-                        className="bg-violet-600 hover:bg-violet-750 text-white rounded-none border-2 border-black font-black text-[10px] uppercase tracking-widest h-9 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        className="bg-violet-600 hover:bg-violet-750 text-white rounded-none border-2 border-black font-black text-[9px] sm:text-[10px] uppercase tracking-widest h-8 sm:h-9 px-2 sm:px-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
                     >
-                        <UserPlus className="w-3.5 h-3.5 mr-1.5" />
-                        Invite
+                        <UserPlus className="w-3.5 h-3.5 sm:mr-1.5" />
+                        <span className="hidden sm:inline">Invite</span>
                     </Button>
 
                     <Button 
                         onClick={() => setIsDoctorOpen(true)}
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-none border-2 border-black font-black text-[10px] uppercase tracking-widest h-9 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all animate-pulse"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-none border-2 border-black font-black text-[9px] sm:text-[10px] uppercase tracking-widest h-8 sm:h-9 px-2 sm:px-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all animate-pulse shrink-0"
                         style={{ animationDuration: '4s' }}
                     >
-                        <AlertCircle className="w-3.5 h-3.5 mr-1.5" />
-                        Timeline Doctor
+                        <AlertCircle className="w-3.5 h-3.5 sm:mr-1.5" />
+                        <span className="hidden sm:inline">Timeline Doctor</span>
                     </Button>
 
                     <Button 
                         onClick={() => setIsLanesOpen(true)}
-                        className="bg-slate-100 hover:bg-slate-200 text-slate-950 rounded-none border-2 border-black font-black text-[10px] uppercase tracking-widest h-9 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        className="bg-slate-100 hover:bg-slate-200 text-slate-950 rounded-none border-2 border-black font-black text-[9px] sm:text-[10px] uppercase tracking-widest h-8 sm:h-9 px-2 sm:px-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
                     >
-                        <Settings2 className="w-3.5 h-3.5 mr-1.5" />
-                        Manage Lanes
+                        <Settings2 className="w-3.5 h-3.5 sm:mr-1.5" />
+                        <span className="hidden sm:inline">Manage Lanes</span>
                     </Button>
 
                     <Button 
                         onClick={() => setIsStudioOpen(true)}
-                        className="bg-amber-500 hover:bg-amber-600 text-white rounded-none border-2 border-black font-black text-[10px] uppercase tracking-widest h-9 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        className="bg-amber-500 hover:bg-amber-600 text-white rounded-none border-2 border-black font-black text-[9px] sm:text-[10px] uppercase tracking-widest h-8 sm:h-9 px-2 sm:px-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all shrink-0"
                     >
-                        <Zap className="w-3.5 h-3.5 mr-1.5 fill-white" />
-                        Event Studio
+                        <Zap className="w-3.5 h-3.5 sm:mr-1.5 fill-white" />
+                        <span className="hidden sm:inline">Event Studio</span>
                     </Button>
                 </div>
             </header>
@@ -878,7 +879,10 @@ export default function Workspace({ params }) {
                 <main 
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeaveCanvas}
-                    className="flex-1 overflow-auto custom-scrollbar bg-slate-50 relative chronos-canvas-mesh"
+                    className={cn(
+                        "flex-1 overflow-auto custom-scrollbar bg-slate-50 relative chronos-canvas-mesh",
+                        activeTab === "timeline" ? "flex flex-col" : "hidden md:flex md:flex-col"
+                    )}
                 >
                     <div style={{ width: `${gridWidth}px` }} className="min-h-full flex flex-col relative p-3 pb-10 space-y-3">
                         {/* Figma-style Live Presence Cursors */}
@@ -963,7 +967,7 @@ export default function Workspace({ params }) {
                             return (
                                 <div 
                                     key={dept} 
-                                    className="bg-white border-4 border-black relative flex items-center z-10 group/row shadow-[4px_4px_0px_0px_rgba(0,0,0,0.03)] transition-all"
+                                    className="bg-white border-4 border-black relative flex items-center z-10 group/row shadow-[4px_4px_0px_0px_rgba(0,0,0,0.03)] transition-all shrink-0"
                                     style={{ height: `${maxLanes * 40 + 22}px` }}
                                 >
                                     {/* Left Title Label */}
@@ -1114,10 +1118,13 @@ export default function Workspace({ params }) {
 
                 </main>
 
-                {/* AI Chat coordinator panel side view */}
+                 {/* AI Chat coordinator panel side view */}
                 <aside className={cn(
-                    "transition-all duration-300 flex flex-col shrink-0 relative z-20",
-                    isChatOpen ? "w-[440px]" : "w-0 overflow-hidden"
+                    "transition-all duration-300 flex flex-col shrink-0 relative z-20 h-full",
+                    // Desktop rules
+                    isChatOpen ? "md:w-[440px]" : "md:w-0 md:overflow-hidden",
+                    // Mobile activeTab rules
+                    activeTab === "chat" ? "w-full flex" : "w-0 hidden md:flex"
                 )}>
                     <ChatPanel 
                         chronicleId={chronicleId}
@@ -1136,6 +1143,30 @@ export default function Workspace({ params }) {
                         currentUserRole={currentUserRole}
                     />
                 </aside>
+            </div>
+
+            {/* Mobile Tab Bar Selector */}
+            <div className="flex md:hidden border-t-4 border-black bg-white select-none shrink-0 z-20">
+                <button 
+                    onClick={() => setActiveTab("timeline")}
+                    className={cn(
+                        "flex-1 py-3.5 text-[10px] font-black uppercase tracking-widest text-center border-r-2 border-black transition-colors flex items-center justify-center gap-2",
+                        activeTab === "timeline" ? "bg-violet-600 text-white" : "bg-white text-slate-700"
+                    )}
+                >
+                    <Calendar className={cn("w-4 h-4 shrink-0", activeTab === "timeline" ? "text-white" : "text-violet-600")} />
+                    <span>Timeline</span>
+                </button>
+                <button 
+                    onClick={() => setActiveTab("chat")}
+                    className={cn(
+                        "flex-1 py-3.5 text-[10px] font-black uppercase tracking-widest text-center transition-colors flex items-center justify-center gap-2",
+                        activeTab === "chat" ? "bg-violet-600 text-white" : "bg-white text-slate-700"
+                    )}
+                >
+                    <Bot className={cn("w-4 h-4 shrink-0", activeTab === "chat" ? "text-white" : "text-violet-600")} />
+                    <span>AI Coordinator</span>
+                </button>
             </div>
 
             {/* Hover Tooltip */}
@@ -1246,7 +1277,7 @@ export default function Workspace({ params }) {
             {/* Task Editor Dialog Modals */}
             <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
                 {editingTask && (
-                    <DialogContent className="sm:max-w-[480px] border-4 border-black rounded-none shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
+                    <DialogContent className="w-[92vw] sm:w-full sm:max-w-[480px] border-4 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
                         {/* Locked Header */}
                         <DialogHeader className="p-6 pb-4 border-b border-slate-200">
                             <DialogTitle className="text-xl font-black uppercase tracking-tighter text-slate-950">Task Blueprint Settings</DialogTitle>
@@ -1465,7 +1496,7 @@ export default function Workspace({ params }) {
 
             {/* Invite Collaborators Modal */}
             <Dialog open={isInviteOpen} onOpenChange={setIsInviteOpen}>
-                <DialogContent className="sm:max-w-[500px] border-4 border-black rounded-none shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
+                <DialogContent className="w-[92vw] sm:w-full sm:max-w-[500px] border-4 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
                     <DialogHeader className="p-6 pb-4 border-b border-slate-200">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 border-2 border-black bg-violet-600 flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-white">
@@ -1603,7 +1634,7 @@ export default function Workspace({ params }) {
 
             {/* Timeline Doctor Modal */}
             <Dialog open={isDoctorOpen} onOpenChange={setIsDoctorOpen}>
-                <DialogContent className="sm:max-w-[550px] border-4 border-black rounded-none shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[82vh] flex flex-col overflow-hidden">
+                <DialogContent className="w-[92vw] sm:w-full sm:max-w-[550px] border-4 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[82vh] flex flex-col overflow-hidden">
                     <DialogHeader className="p-6 pb-4 border-b border-slate-200 bg-emerald-50">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 border-2 border-black bg-emerald-600 flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-white">
@@ -1818,7 +1849,7 @@ export default function Workspace({ params }) {
 
             {/* Manage Dynamic Lanes Modal */}
             <Dialog open={isLanesOpen} onOpenChange={setIsLanesOpen}>
-                <DialogContent className="sm:max-w-[500px] border-4 border-black rounded-none shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
+                <DialogContent className="w-[92vw] sm:w-full sm:max-w-[500px] border-4 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] p-0 bg-white text-slate-950 max-h-[90vh] flex flex-col overflow-hidden">
                     {/* Locked Header */}
                     <DialogHeader className="p-6 pb-4 border-b border-slate-200">
                         <div className="flex items-center gap-3">
